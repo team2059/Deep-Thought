@@ -1,0 +1,3 @@
+[submodule "hhCore"]
+	path = hhCore
+	url = https://github.com/team2059/hhCore
