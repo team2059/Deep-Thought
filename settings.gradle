@@ -23,5 +23,3 @@ pluginManagement {
         }
     }
 }
-
-include 'hhCore'
