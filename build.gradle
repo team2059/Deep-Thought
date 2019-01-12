@@ -3,6 +3,7 @@ plugins {
     id "edu.wpi.first.GradleRIO" version "2019.1.1"
 }
 
+def TEAM = 2059
 def ROBOT_MAIN_CLASS = "frc.robot.Main"
 
 deploy {
