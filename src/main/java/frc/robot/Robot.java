@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.CommandBase;
 import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.Auto.DriveStraight;
 import frc.robot.subsystems.ExampleSubsystem;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
@@ -43,9 +44,11 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     m_oi = new OI();
-    m_chooser.setDefaultOption("Default Auto", new ExampleCommand());
+    m_chooser.setDefaultOption("Example Auto", new ExampleCommand());
+    m_chooser.addObject("Line Auto", new DriveStraight());
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
+    
 
     CommandBase.init();
   }

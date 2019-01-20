@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import hhCore.subsystems.drive.HHDrive;
+import frc.robot.RobotMap;
 import frc.robot.commands.Drive;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 /**
@@ -36,6 +37,16 @@ public class DriveBase extends HHDrive {
   }
 
   public void driveBase(double x, double y) {
-		robotDrive.arcadeDrive(y, x);
+    robotDrive.arcadeDrive(y, x);
   }
+
+  public void driveForward(double speed){
+    leftMotor1.set(speed);
+    leftMotor2.set(speed);
+    rightMotor1.set(speed);
+    rightMotor2.set(speed);
+  }
+
+
+
 }
