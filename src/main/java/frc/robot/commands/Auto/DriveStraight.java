@@ -8,13 +8,13 @@
 package frc.robot.commands.Auto;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
-import frc.robot.commands.DriveTrain.TimeDrive;
+import frc.robot.commands.DriveTrain.LineFollow;
 
 /**
  * An example command.  You can replace me with your own command.
  */
 public class DriveStraight extends CommandGroup {
   public DriveStraight() {
-    addSequential(new TimeDrive(.1));
+    addSequential(new LineFollow(60));
   }
 }

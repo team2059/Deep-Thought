@@ -7,6 +7,7 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -29,8 +30,6 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
  * project.
  */
 public class Robot extends TimedRobot {
-  WPI_TalonSRX leftMotor1 = new WPI_TalonSRX(4);
-
   public static ExampleSubsystem m_subsystem = new ExampleSubsystem();
   public static OI m_oi;
 
@@ -46,10 +45,7 @@ public class Robot extends TimedRobot {
     m_oi = new OI();
     m_chooser.setDefaultOption("Example Auto", new ExampleCommand());
     m_chooser.addObject("Line Auto", new DriveStraight());
-    // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
-    
-
     CommandBase.init();
   }
 
@@ -132,6 +128,10 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
+    // SmartDashboard.putBoolean("Left", photoElectricleft.get());
+    // SmartDashboard.putBoolean("Right", photoElectricright.get());
+    // SmartDashboard.putBoolean("Back", photoElectricback.get());
+
   }
 
   /**

@@ -37,16 +37,6 @@ public class DriveBase extends HHDrive {
   }
 
   public void driveBase(double x, double y) {
-    robotDrive.arcadeDrive(y, x);
+    robotDrive.tankDrive(-y, -x);
   }
-
-  public void driveForward(double speed){
-    leftMotor1.set(speed);
-    leftMotor2.set(speed);
-    rightMotor1.set(speed);
-    rightMotor2.set(speed);
-  }
-
-
-
 }
