@@ -17,6 +17,14 @@ import frc.robot.commands.CommandBase;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.Auto.DriveStraight;
 import frc.robot.subsystems.ExampleSubsystem;
+import edu.wpi.first.networktables.NetworkTable;
+import edu.wpi.first.networktables.NetworkTableEntry;
+import edu.wpi.first.networktables.NetworkTableInstance;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.awt.List;
+import java.util.ArrayList;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
@@ -33,8 +41,15 @@ public class Robot extends TimedRobot {
   public static ExampleSubsystem m_subsystem = new ExampleSubsystem();
   public static OI m_oi;
 
+  static final String PI_ADDRESS = "10.20.59.6";
+  static final int PORT = 8081;
+  NetworkTableInstance inst = NetworkTableInstance.getDefault();
+  NetworkTable table = inst.getTable("SmartDashboard");
+  NetworkTableEntry distance = table.getEntry("visionDistance");
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
+  private Gson gson = new Gson();
+  public ArrayList<TargetInfo> targets = new ArrayList<TargetInfo>();
 
   /**
    * This function is run when the robot is first started up and should be
@@ -47,6 +62,9 @@ public class Robot extends TimedRobot {
     m_chooser.addObject("Line Auto", new DriveStraight());
     SmartDashboard.putData("Auto mode", m_chooser);
     CommandBase.init();
+    NetworkTableInstance.getDefault()
+      .getEntry("/CameraPublisher/PiCamera/streams")
+      .setStringArray(new String[]{"mjpeg:http://" + PI_ADDRESS + ":" + PORT + "/?action=stream"});
   }
 
   /**
@@ -128,9 +146,17 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
+    double distance = NetworkTableInstance.getDefault().getEntry("/SmartDashboard/visionDistance").getDouble(-1);
+    String gsonString = NetworkTableInstance.getDefault().getEntry("/SmartDashboard/visionJSON").getString("");
+    // double visionMode = NetworkTableInstance.getDefault().getEntry("/SmartDashboard/visionMode").getDouble(-1);
     // SmartDashboard.putBoolean("Left", photoElectricleft.get());
     // SmartDashboard.putBoolean("Right", photoElectricright.get());
     // SmartDashboard.putBoolean("Back", photoElectricback.get());
+
+    targets = gson.fromJson(gsonString, new TypeToken<ArrayList<TargetInfo>>(){}.getType());
+    for(TargetInfo target : targets){
+      System.out.println(target.distance + " - " + target.number);
+    }
 
   }
 
