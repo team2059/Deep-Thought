@@ -49,7 +49,7 @@ public class Robot extends TimedRobot {
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
   private Gson gson = new Gson();
-  public ArrayList<TargetInfo> targets = new ArrayList<TargetInfo>();
+  public static ArrayList<TargetInfo> targets = new ArrayList<TargetInfo>();
 
   /**
    * This function is run when the robot is first started up and should be
@@ -154,9 +154,9 @@ public class Robot extends TimedRobot {
     // SmartDashboard.putBoolean("Back", photoElectricback.get());
 
     targets = gson.fromJson(gsonString, new TypeToken<ArrayList<TargetInfo>>(){}.getType());
-    for(TargetInfo target : targets){
-      System.out.println(target.distance + " - " + target.number);
-    }
+    // for(TargetInfo target : targets){
+    //   System.out.println(target.distance + " - " + target.number);
+    // }
 
   }
 

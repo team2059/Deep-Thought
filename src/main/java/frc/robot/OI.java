@@ -11,6 +11,8 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import frc.robot.commands.DriveTrain.LineFollow;
+import frc.robot.commands.Auto.Vision;
+
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -20,6 +22,7 @@ public class OI {
   private static Joystick driveJoystick = new Joystick(0);
 
   JoystickButton button5 = new JoystickButton(driveJoystick, 5);
+  JoystickButton button6 = new JoystickButton(driveJoystick, 6);
 
   public static Joystick getDriveJoystick() {
 		return driveJoystick;
@@ -27,5 +30,6 @@ public class OI {
   
   public OI() {
     button5.whenPressed(new LineFollow(20));
+    button6.whenPressed(new Vision());
   }
 }
