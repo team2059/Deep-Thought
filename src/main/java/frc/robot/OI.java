@@ -10,6 +10,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
+import frc.robot.commands.Auto.FocusPursuit;
 import frc.robot.commands.DriveTrain.LineFollow;
 import frc.robot.commands.Auto.Vision;
 
@@ -23,6 +24,7 @@ public class OI {
 
   JoystickButton button5 = new JoystickButton(driveJoystick, 5);
   JoystickButton button6 = new JoystickButton(driveJoystick, 6);
+  JoystickButton button7 = new JoystickButton(driveJoystick, 7);
 
   public static Joystick getDriveJoystick() {
 		return driveJoystick;
@@ -31,5 +33,6 @@ public class OI {
   public OI() {
     button5.whenPressed(new LineFollow(20));
     button6.whenPressed(new Vision());
+    button7.whenPressed(new FocusPursuit());
   }
 }

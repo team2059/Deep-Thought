@@ -39,4 +39,8 @@ public class DriveBase extends HHDrive {
   public void driveBase(double x, double y) {
     robotDrive.tankDrive(-y, -x);
   }
+
+  public void arcade(double x, double y) {
+        robotDrive.arcadeDrive(x, -y);
+  }
 }
