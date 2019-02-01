@@ -6,17 +6,19 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot.commands.Auto;
-
+//import Java.lang.Math;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.RobotMap;
+import frc.robot.commands.CommandBase;
 
 /**
  * An example command.  You can replace me with your own command.
  */
-public class Vision extends Command {
+public class Vision extends CommandBase {
 
   public Vision() {
-    requires(Robot.m_subsystem);
+    //requires(Robot.m_subsystem);
   }
 
   @Override
@@ -28,8 +30,25 @@ public class Vision extends Command {
     if (Robot.targets.isEmpty()) {
       System.out.println("Empty"); 
     } else {
-      System.out.println(Robot.targets.get(0).distance); 
+      //System.out.println("distance" + Robot.targets.get(0).distance);
+      //System.out.println("angle 2" + Robot.targets.get(0).angle2);
+      System.out.println("x coor: " + Robot.targets.get(0).distance   *   Math.sin(Math.toRadians(Robot.targets.get(0).angle2)));
+      /*System.out.println(Robot.targets.get(0).angle1); 
+      if (Robot.targets.get(0).angle1<0){
+        driveBase.driveBase(RobotMap.photoForward - (RobotMap.photoSubCorrection*2), RobotMap.photoForward + (RobotMap.photoAddCorrection*2));
+      }
+      else if (Robot.targets.get(0).angle1>0){
+        driveBase.driveBase(RobotMap.photoForward + (RobotMap.photoAddCorrection*2), RobotMap.photoForward - (RobotMap.photoSubCorrection*2));
+
+      }else {
+        driveBase.driveBase(RobotMap.photoForward, RobotMap.photoForward);        
+      }*/
+
     }
+    
+
+
+
   }
 
   @Override
