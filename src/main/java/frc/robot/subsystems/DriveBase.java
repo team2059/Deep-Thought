@@ -41,6 +41,6 @@ public class DriveBase extends HHDrive {
   }
 
   public void arcade(double x, double y) {
-        robotDrive.arcadeDrive(x, -y);
+        robotDrive.arcadeDrive(-y, x);
   }
 }
