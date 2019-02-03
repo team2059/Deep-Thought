@@ -65,6 +65,9 @@ public class Robot extends TimedRobot {
     NetworkTableInstance.getDefault()
       .getEntry("/CameraPublisher/PiCamera/streams")
       .setStringArray(new String[]{"mjpeg:http://" + PI_ADDRESS + ":" + PORT + "/?action=stream"});
+    
+      CommandBase.driveBase.resetLeftEncoder();
+      CommandBase.driveBase.resetRightEncoder();
   }
 
   /**
@@ -131,10 +134,10 @@ public class Robot extends TimedRobot {
 
   @Override
   public void teleopInit() {
-    // This makes sure that the autonomous stops running when
-    // teleop starts running. If you want the autonomous to
-    // continue until interrupted by another command, remove
-    // this line or comment it out.
+    CommandBase.driveBase.resetLeftEncoder();
+		CommandBase.driveBase.resetRightEncoder();
+    CommandBase.driveBase.resetGyro();
+
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();
     }
@@ -152,6 +155,10 @@ public class Robot extends TimedRobot {
     // SmartDashboard.putBoolean("Left", photoElectricleft.get());
     // SmartDashboard.putBoolean("Right", photoElectricright.get());
     // SmartDashboard.putBoolean("Back", photoElectricback.get());
+
+    SmartDashboard.putNumber("Left Encoder", CommandBase.driveBase.getLeftEncoder());
+		SmartDashboard.putNumber("Right Encoder", CommandBase.driveBase.getRightEncoder());
+    SmartDashboard.putNumber("Gyro", CommandBase.driveBase.getGyro());
 
     targets = gson.fromJson(gsonString, new TypeToken<ArrayList<TargetInfo>>(){}.getType());
     // for(TargetInfo target : targets){

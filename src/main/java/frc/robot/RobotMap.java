@@ -14,9 +14,21 @@ package frc.robot;
  * floating around.
  */
 public class RobotMap {
-  
+
   // Line Following
   public static double photoForward = .4;
   public static double photoAddCorrection = .1;
   public static double photoSubCorrection = .07;
+
+  // Drive Train
+  public static int leftMotor1 = 4;
+  public static int leftMotor2 = 2;
+  public static int rightMotor1 = 3;
+  public static int rightMotor2 = 1;
+
+  // Drive Train Sensors
+  public static int leftEncoder1 = 1;
+  public static int leftEncoder2 = 2;
+  public static int rightEncoder1 = 3;
+  public static int rightEncoder2 = 4;
 }
