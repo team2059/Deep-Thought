@@ -13,8 +13,6 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 public class DriveBase extends HHSensorDrive {
 
-  private double ENCODERCONVERSION = 1;
-
   WPI_TalonSRX leftMotor1 = new WPI_TalonSRX(RobotMap.leftMotor1);
   WPI_TalonSRX leftMotor2 = new WPI_TalonSRX(RobotMap.leftMotor2);
   WPI_TalonSRX rightMotor1 = new WPI_TalonSRX(RobotMap.rightMotor1);
@@ -55,12 +53,12 @@ public class DriveBase extends HHSensorDrive {
 
   @Override
   public double getLeftEncoder() {
-    return leftEncoder.get() / ENCODERCONVERSION;
+    return leftEncoder.get() / 6.3847;
   }
 
   @Override
   public double getRightEncoder() {
-    return -rightEncoder.get() / ENCODERCONVERSION;
+    return -rightEncoder.get() / 6.2625;
   }
 
   public int getLeftEncoderRaw() {
@@ -82,7 +80,7 @@ public class DriveBase extends HHSensorDrive {
   }
 
   public void driveBase(double x, double y) {
-    robotDrive.tankDrive(-y, -x);
+    robotDrive.arcadeDrive(y, x);
   }
 
   public void arcade(double x, double y) {
