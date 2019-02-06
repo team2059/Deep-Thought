@@ -70,11 +70,6 @@ public class DriveBase extends HHSensorDrive {
   }
 
   @Override
-  public double getGyro() {
-    return gyro.getAngle() % 360;
-  }
-
-  @Override
   public void initDefaultCommand() {
     setDefaultCommand(new Drive());
   }

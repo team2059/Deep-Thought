@@ -68,6 +68,7 @@ public class Robot extends TimedRobot {
     
       CommandBase.driveBase.resetLeftEncoder();
       CommandBase.driveBase.resetRightEncoder();
+      CommandBase.driveBase.init();
   }
 
   /**
@@ -80,6 +81,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotPeriodic() {
+    CommandBase.driveBase.update();
   }
 
   /**
@@ -135,8 +137,9 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopInit() {
     CommandBase.driveBase.resetLeftEncoder();
-		CommandBase.driveBase.resetRightEncoder();
+    CommandBase.driveBase.resetRightEncoder();
     CommandBase.driveBase.resetGyro();
+    CommandBase.driveBase.init();
 
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();
