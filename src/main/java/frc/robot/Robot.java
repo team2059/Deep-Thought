@@ -50,6 +50,7 @@ public class Robot extends TimedRobot {
   SendableChooser<Command> m_chooser = new SendableChooser<>();
   private Gson gson = new Gson();
   public static ArrayList<TargetInfo> targets = new ArrayList<TargetInfo>();
+  private int velocityCount = 0;
 
   /**
    * This function is run when the robot is first started up and should be
@@ -66,9 +67,9 @@ public class Robot extends TimedRobot {
       .getEntry("/CameraPublisher/PiCamera/streams")
       .setStringArray(new String[]{"mjpeg:http://" + PI_ADDRESS + ":" + PORT + "/?action=stream"});
     
-      CommandBase.driveBase.resetLeftEncoder();
-      CommandBase.driveBase.resetRightEncoder();
-      CommandBase.driveBase.init();
+    CommandBase.driveBase.resetLeftEncoder();
+    CommandBase.driveBase.resetRightEncoder();
+    CommandBase.driveBase.init();
   }
 
   /**
@@ -81,7 +82,11 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotPeriodic() {
-    CommandBase.driveBase.update();
+    if(velocityCount == 10) {
+      CommandBase.driveBase.update();
+      velocityCount = 0;
+    }
+    velocityCount++;
   }
 
   /**
@@ -152,6 +157,7 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
+    System.out.println("teleopPeriodic");
     double distance = NetworkTableInstance.getDefault().getEntry("/SmartDashboard/visionDistance").getDouble(-1);
     String gsonString = NetworkTableInstance.getDefault().getEntry("/SmartDashboard/visionJSON").getString("");
     // double visionMode = NetworkTableInstance.getDefault().getEntry("/SmartDashboard/visionMode").getDouble(-1);
@@ -164,6 +170,12 @@ public class Robot extends TimedRobot {
     SmartDashboard.putNumber("Gyro", CommandBase.driveBase.getGyro());
 
     targets = gson.fromJson(gsonString, new TypeToken<ArrayList<TargetInfo>>(){}.getType());
+
+    System.out.printf("LV: %.2f RV: %.2f LA: %.2f RA: %.2f",
+            CommandBase.driveBase.getLeftVelocity(),
+            CommandBase.driveBase.getRightVelocity(),
+            CommandBase.driveBase.getLeftAcceleration(),
+            CommandBase.driveBase.getRightAcceleration());
     // for(TargetInfo target : targets){
     //   System.out.println(target.distance + " - " + target.number);
     // }
