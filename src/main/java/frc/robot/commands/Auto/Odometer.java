@@ -10,9 +10,11 @@ public class Odometer {
         reset();
     }
 
-    public void set(double x, double y) {
+    public void set(double x, double y, double prevLeftEncoder, double prevRightEncoder) {
         this.x = x;
         this.y = y;
+        this.prevLeftEncoder = prevLeftEncoder;
+        this.prevRightEncoder = prevRightEncoder;
     }
 
     public void reset() {

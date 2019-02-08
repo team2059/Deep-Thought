@@ -157,10 +157,8 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
-    System.out.println("teleopPeriodic");
-    double distance = NetworkTableInstance.getDefault().getEntry("/SmartDashboard/visionDistance").getDouble(-1);
     String gsonString = NetworkTableInstance.getDefault().getEntry("/SmartDashboard/visionJSON").getString("");
-    // double visionMode = NetworkTableInstance.getDefault().getEntry("/SmartDashboard/visionMode").getDouble(-1);
+    // double visionMode = Network640TableInstance.getDefault().getEntry("/SmartDashboard/visionMode").getDouble(-1);
     // SmartDashboard.putBoolean("Left", photoElectricleft.get());
     // SmartDashboard.putBoolean("Right", photoElectricright.get());
     // SmartDashboard.putBoolean("Back", photoElectricback.get());
@@ -171,11 +169,11 @@ public class Robot extends TimedRobot {
 
     targets = gson.fromJson(gsonString, new TypeToken<ArrayList<TargetInfo>>(){}.getType());
 
-    System.out.printf("LV: %.2f RV: %.2f LA: %.2f RA: %.2f",
-            CommandBase.driveBase.getLeftVelocity(),
-            CommandBase.driveBase.getRightVelocity(),
-            CommandBase.driveBase.getLeftAcceleration(),
-            CommandBase.driveBase.getRightAcceleration());
+    //System.out.printf("LV: %.2f RV: %.2f LA: %.2f RA: %.2f",
+//            CommandBase.driveBase.getLeftVelocity(),
+//            CommandBase.driveBase.getRightVelocity(),
+//            CommandBase.driveBase.getLeftAcceleration(),
+//            CommandBase.driveBase.getRightAcceleration());
     // for(TargetInfo target : targets){
     //   System.out.println(target.distance + " - " + target.number);
     // }

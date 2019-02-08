@@ -81,4 +81,8 @@ public class DriveBase extends HHSensorDrive {
   public void arcade(double x, double y) {
     robotDrive.arcadeDrive(-y, x);
   }
+
+  public void tank(double l, double r) {
+    robotDrive.tankDrive(l, r);
+  }
 }

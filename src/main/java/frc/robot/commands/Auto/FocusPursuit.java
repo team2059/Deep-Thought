@@ -21,7 +21,7 @@ public class FocusPursuit extends PIDCommand {
         setInputRange(-TURNMAXSPEED, TURNMAXSPEED);
     }
 
-    /**TURNMAXSPEED
+    /**
      * getRobotX() returns the x position of the robot in inches.
      * @return robot x position
      */
