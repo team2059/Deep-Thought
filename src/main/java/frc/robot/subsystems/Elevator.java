@@ -6,41 +6,69 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import frc.robot.RobotMap;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.ControlMode;
 
+public class Elevator extends Subsystem{
 
+  WPI_TalonSRX elevatorMotor = new WPI_TalonSRX(RobotMap.elevatorMotor);
+  WPI_TalonSRX carriageMotor = new WPI_TalonSRX(RobotMap.carriageElevatorMotor);
 
-public class Elevator extends Subsysem{
-    WPI_TalonSRX elevator1Motor = new WPI_TalonSRX(RobotMap.elevator1MotorPort);
-    WPI_TalonSRX elevator2Motor = new WPI_TalonSRX(RobotMap.elevator2MotorPort);
+  DigitalInput elevatorLimitTop = new DigitalInput(RobotMap.elevatorLimitTop);
+  DigitalInput elevatorLimitBottom = new DigitalInput(RobotMap.elevatorLimitBottom);
 
-    DigitalInput limit1Top = new DigitalInput(RobotMap.limitTopPort);
-    DigitalInput limit1Bottom = new DigitalInput(RobotMap.limitBottomPort);
+  DigitalInput carriageLimitTop = new DigitalInput(RobotMap.carriageLimitTop);
+  DigitalInput carriageLimitBottom = new DigitalInput(RobotMap.carriageLimitBottom);
 
-
-    public void elevateFirst(double speed){
-        /*if((limit1Top && speed<0) || (limit1Bottom && speed>0)){  //  if (top limiter has detected something and the speed is less than zero(going down) or (bottom limiter has detected something and the speed is greater than zero(going up))
-            elevator1Motor.set(speed);
-        }else{
-            elevator1Motor.set(0);
-        }*/
-        elevator1Motor.set(speed);
-
+  /*
+   *  Main Elevator Stage
+   */
+  public void mainElevate(double s) {
+    if (getElevatorLimitBottom() == true && s < 0) {
+      elevatorMotor.set(ControlMode.PercentOutput, 0);
+    } else if (getElevatorLimitTop() == true && s > 0) {
+      elevatorMotor.set(ControlMode.PercentOutput, 0);
+    } else {
+      elevatorMotor.set(ControlMode.PercentOutput, -s);
     }
+  }
 
-    public void elevateSecond(double speed){
-        /*if((limit1Top && speed<0) || (limit1Bottom && speed>0)){  //  if (top limiter has detected something and the speed is less than zero(going down) or (bottom limiter has detected something and the speed is greater than zero(going up))
-            elevator2Motor.set(speed);
-        }else{
-            elevator2Motor.set(0);
-        }*/
-        elevator2Motor.set(speed);
+  public boolean getElevatorLimitBottom() {
+    return elevatorLimitTop.get();
+  }
+
+  public boolean getElevatorLimitTop() {
+    return elevatorLimitBottom.get();
+  }
+
+  public double getElevatorEncoder() {
+    return elevatorMotor.getSelectedSensorPosition(0) / 1;
+  }
+
+  /*
+   *  Carriage Elevator Stage
+   */
+  public void carriageElevator(double s) {
+    if (getCarriageLimitBottom() == true && s < 0) {
+      carriageMotor.set(ControlMode.PercentOutput, 0);
+    } else if (getCarriageLimitTop() == true && s > 0) {
+      carriageMotor.set(ControlMode.PercentOutput, 0);
+    } else {
+      carriageMotor.set(ControlMode.PercentOutput, -s);
     }
+  }
 
+  public boolean getCarriageLimitBottom() {
+    return carriageLimitBottom.get();
+  }
 
+  public boolean getCarriageLimitTop() {
+    return carriageLimitTop.get();
+  }
 
+  public double getCarriageEncoder() {
+    return carriageMotor.getSelectedSensorPosition(0) / 1;
+  }
 
-
-    @Override
-	protected void initDefaultCommand() {}
-
+  @Override
+  protected void initDefaultCommand() {}
 }

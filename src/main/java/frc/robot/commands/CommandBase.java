@@ -4,7 +4,7 @@ package frc.robot.commands;
 import frc.robot.subsystems.Elevator;
 import edu.wpi.first.wpilibj.command.Command;
 
-public class CommandBase extends Command {
+public abstract class CommandBase extends Command {
 
     public static Elevator elevator;
 

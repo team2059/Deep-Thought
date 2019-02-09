@@ -17,18 +17,23 @@ public class RobotMap {
 
   public static boolean stageOneEnabled = true;
 
-  public static int limitTopPort=0;
-  public static int limitBottomPort=1;
-  public static int elevator1MotorPort=4;
-  public static int elevator2MotorPort=5;
+  // Carriage Elevator
+  public static int carriageLimitTop = 1;
+  public static int carriageLimitBottom = 2;
+  public static int carriageElevatorMotor = 5;
 
-    // For example to map the left and right motors, you could define the
-    // following variables to use with your drivetrain subsystem.
-    // public static int leftMotor = 1;
-    // public static int rightMotor = 2;
+  // Carraige Elevator PID Values
+  public static double carriageElevatorP = 1;
+  public static double carriageElevatorI = 0;
+  public static double carriageElevatorD = 0;
 
-    // If you are using multiple modules, make sure to define both the port
-    // number and the module. For example you with a rangefinder:
-    // public static int rangefinderPort = 1;
-    // public static int rangefinderModule = 1;
+  // Main Elevator
+  public static int elevatorLimitTop = 3;
+  public static int elevatorLimitBottom = 4;
+  public static int elevatorMotor = 6;
+
+  // Main Elevator PID Values
+  public static double mainElevatorP = 1;
+  public static double mainElevatorI = 0;
+  public static double mainElevatorD = 0;
 }

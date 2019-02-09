@@ -1,9 +1,9 @@
 package frc.robot.commands;
 
-public class Elevate extends CommandBase {
+public class CarriageElevate extends CommandBase {
 
     double speed;
-    public Elevate(double s){
+    public CarriageElevate(double s){
       speed = s;
     }
 
@@ -12,7 +12,7 @@ public class Elevate extends CommandBase {
 
     @Override
     protected void execute(){
-      elevator.mainElevate(speed);
+      elevator.carriageElevator(speed);
     }
 
     @Override
@@ -26,6 +26,6 @@ public class Elevate extends CommandBase {
 
     @Override
     protected void end(){
-        elevator.mainElevate(0);
+        elevator.carriageElevator(0);
     }
 }
