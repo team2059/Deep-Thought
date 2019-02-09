@@ -1,14 +1,14 @@
-package frc.robot.commands;
+package frc.robot.commands.Elevator;
 
 import frc.robot.RobotMap;
 import frc.robot.commands.CommandBase;
 
 import edu.wpi.first.wpilibj.command.PIDCommand;
 
-public class PIDCarriageElevate extends PIDCommand{
+public class PIDElevate extends PIDCommand{
 
-	public PIDCarriageElevate(double inches) {
-		super(RobotMap.carriageElevatorP, RobotMap.carriageElevatorI, RobotMap.carriageElevatorD);
+	public PIDElevate(double inches) {
+		super(RobotMap.mainElevatorP, RobotMap.mainElevatorI, RobotMap.mainElevatorD);
 
 		setTimeout(3000);
 		setSetpoint(inches);
@@ -19,12 +19,12 @@ public class PIDCarriageElevate extends PIDCommand{
 
 	@Override
 	protected double returnPIDInput() {
-		return CommandBase.elevator.getCarriageEncoder();
+		return CommandBase.elevator.getElevatorEncoder();
 	}
 
 	@Override
 	protected void usePIDOutput(double speed) {
-    CommandBase.elevator.carriageElevator(speed);
+    CommandBase.elevator.mainElevate(speed);
 	}
 
 	@Override

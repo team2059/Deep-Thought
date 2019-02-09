@@ -1,17 +1,17 @@
-package frc.robot.commands;
+package frc.robot.commands.Arm;
 
 import frc.robot.RobotMap;
 import frc.robot.commands.CommandBase;
 
 import edu.wpi.first.wpilibj.command.PIDCommand;
 
-public class PIDElevate extends PIDCommand{
+public class PIDArm extends PIDCommand{
 
-	public PIDElevate(double inches) {
-		super(RobotMap.mainElevatorP, RobotMap.mainElevatorI, RobotMap.mainElevatorD);
+	public PIDArm(double angle) {
+		super(RobotMap.armP, RobotMap.armI, RobotMap.armD);
 
 		setTimeout(3000);
-		setSetpoint(inches);
+		setSetpoint(angle);
 	}
 
 	protected void initialize() {
@@ -19,12 +19,12 @@ public class PIDElevate extends PIDCommand{
 
 	@Override
 	protected double returnPIDInput() {
-		return CommandBase.elevator.getElevatorEncoder();
+		return CommandBase.intake.getArmAngle();
 	}
 
 	@Override
 	protected void usePIDOutput(double speed) {
-    CommandBase.elevator.mainElevate(speed);
+        CommandBase.intake.moveArm(speed);
 	}
 
 	@Override

@@ -36,4 +36,22 @@ public class RobotMap {
   public static double mainElevatorP = 1;
   public static double mainElevatorI = 0;
   public static double mainElevatorD = 0;
+
+  //Intake 
+  public static int armMotorPort = 69;
+  public static int wristMotorPort = 69;
+  public static int armPotPort = 69;
+  public static int wristPotPort = 69;
+  public static int collectorMotorPort = 69;
+
+  //Arm PID Values
+  public static double armP = 1;
+  public static double armI = 0;
+  public static double armD = 0;
+
+
+  //Wrist PID Values
+  public static double wristP = 1;
+  public static double wristI = 0;
+  public static double wristD = 0;
 }
