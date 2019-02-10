@@ -12,7 +12,7 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 public class Elevator extends Subsystem {
 
     WPI_TalonSRX elevatorMotor = new WPI_TalonSRX(RobotMap.elevatorMotor);
-    WPI_TalonSRX carriageMotor = new WPI_TalonSRX(RobotMap.carriageElevatorMotor);
+    WPI_TalonSRX carriageMotor = new WPI_TalonSRX(RobotMap.carriageMotor);
 
     DigitalInput elevatorLimitTop = new DigitalInput(RobotMap.elevatorLimitTop);
     DigitalInput elevatorLimitBottom = new DigitalInput(RobotMap.elevatorLimitBottom);
