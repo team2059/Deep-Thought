@@ -3,29 +3,29 @@ package frc.robot.commands;
 public class Collector extends CommandBase {
 
     double speed;
-    public Collector(double s){
-      speed = s;
+    public Collector(double s) {
+        speed = s;
     }
 
     @Override
-    protected void initialize(){}
+    protected void initialize() {}
 
     @Override
-    protected void execute(){
-      intake.collector(speed);
+    protected void execute() {
+        intake.collector(speed);
     }
 
     @Override
-    protected void interrupted(){
-      end();
+    protected void interrupted() {
+        end();
     }
 
     protected boolean isFinished() {
-      return isTimedOut();
+        return isTimedOut();
     }
 
     @Override
-    protected void end(){
+    protected void end() {
         elevator.carriageElevator(0);
     }
 }

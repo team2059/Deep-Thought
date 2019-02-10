@@ -8,11 +8,11 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public abstract class CommandBase extends Command {
 
-	public static Elevator elevator;
-	public static Intake intake;
+    public static Elevator elevator;
+    public static Intake intake;
 
-    public static void init(){
-		elevator = new Elevator();
-		intake = new Intake();
+    public static void init() {
+        elevator = new Elevator();
+        intake = new Intake();
     }
 }

@@ -5,29 +5,29 @@ import frc.robot.commands.CommandBase;
 public class Elevate extends CommandBase {
 
     double speed;
-    public Elevate(double s){
-      speed = s;
+    public Elevate(double s) {
+        speed = s;
     }
 
     @Override
-    protected void initialize(){}
+    protected void initialize() {}
 
     @Override
-    protected void execute(){
-      elevator.mainElevate(speed);
+    protected void execute() {
+        elevator.mainElevate(speed);
     }
 
     @Override
-    protected void interrupted(){
-      end();
+    protected void interrupted() {
+        end();
     }
 
     protected boolean isFinished() {
-      return isTimedOut();
+        return isTimedOut();
     }
 
     @Override
-    protected void end(){
+    protected void end() {
         elevator.mainElevate(0);
     }
 }

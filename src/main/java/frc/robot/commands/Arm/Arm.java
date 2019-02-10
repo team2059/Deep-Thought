@@ -3,32 +3,31 @@ package frc.robot.commands.Arm;
 import frc.robot.commands.CommandBase;
 
 public class Arm extends CommandBase {
-  double speed;
-  public Arm(double s) {
-    speed = s;
-  }
+    double speed;
+    public Arm(double s) {
+        speed = s;
+    }
 
 
-  // Called just before this Command runs the first time
-  @Override
-  protected void initialize() {
-  }
+    @Override
+    protected void initialize() {
+    }
 
-  @Override
-  protected void execute() {
-    intake.moveArm(speed);
-  }
+    @Override
+    protected void execute() {
+        intake.moveArm(speed);
+    }
 
-  @Override
-  protected boolean isFinished() {
-    return false;
-  }
+    @Override
+    protected boolean isFinished() {
+        return false;
+    }
 
-  @Override
-  protected void end() {
-  }
+    @Override
+    protected void end() {
+    }
 
-  @Override
-  protected void interrupted() {
-  }
+    @Override
+    protected void interrupted() {
+    }
 }

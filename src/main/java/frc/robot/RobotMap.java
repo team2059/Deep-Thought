@@ -15,43 +15,43 @@ package frc.robot;
  */
 public class RobotMap {
 
-  public static boolean stageOneEnabled = true;
+    public static boolean stageOneEnabled = true;
 
-  // Carriage Elevator
-  public static int carriageLimitTop = 1;
-  public static int carriageLimitBottom = 2;
-  public static int carriageElevatorMotor = 5;
+    // Carriage Elevator
+    public static int carriageLimitTop = 1;
+    public static int carriageLimitBottom = 2;
+    public static int carriageElevatorMotor = 5;
 
-  // Carraige Elevator PID Values
-  public static double carriageElevatorP = 1;
-  public static double carriageElevatorI = 0;
-  public static double carriageElevatorD = 0;
+    // Carraige Elevator PID Values
+    public static double carriageElevatorP = 1;
+    public static double carriageElevatorI = 0;
+    public static double carriageElevatorD = 0;
 
-  // Main Elevator
-  public static int elevatorLimitTop = 3;
-  public static int elevatorLimitBottom = 4;
-  public static int elevatorMotor = 6;
+    // Main Elevator
+    public static int elevatorLimitTop = 3;
+    public static int elevatorLimitBottom = 4;
+    public static int elevatorMotor = 6;
 
-  // Main Elevator PID Values
-  public static double mainElevatorP = 1;
-  public static double mainElevatorI = 0;
-  public static double mainElevatorD = 0;
+    // Main Elevator PID Values
+    public static double mainElevatorP = 1;
+    public static double mainElevatorI = 0;
+    public static double mainElevatorD = 0;
 
-  // Intake
-  public static int armMotorPort = 69;
-  public static int wristMotorPort = 69;
-  public static int armPotPort = 69;
-  public static int wristPotPort = 69;
-  public static int collectorMotorPort = 69;
+    // Intake
+    public static int armMotorPort = 69;
+    public static int wristMotorPort = 69;
+    public static int armPotPort = 69;
+    public static int wristPotPort = 69;
+    public static int collectorMotorPort = 69;
 
-  // Arm PID Values
-  public static double armP = 1;
-  public static double armI = 0;
-  public static double armD = 0;
+    // Arm PID Values
+    public static double armP = 1;
+    public static double armI = 0;
+    public static double armD = 0;
 
 
-  // Wrist PID Values
-  public static double wristP = 1;
-  public static double wristI = 0;
-  public static double wristD = 0;
+    // Wrist PID Values
+    public static double wristP = 1;
+    public static double wristI = 0;
+    public static double wristD = 0;
 }
