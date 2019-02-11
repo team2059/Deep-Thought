@@ -28,7 +28,7 @@ public class Odometer {
         double dLeftEncoder = leftEncoder - prevLeftEncoder;
         double dRightEncoder = rightEncoder - prevRightEncoder;
         double distance = (dLeftEncoder + dRightEncoder) / 2;
-
+        System.out.printf("Angle: %.2f Distance: %.2f\n", angle, distance);
         x += distance * Math.cos(Math.toRadians(angle));
         y += distance * Math.sin(Math.toRadians(angle));
 

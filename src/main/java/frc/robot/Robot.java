@@ -70,6 +70,7 @@ public class Robot extends TimedRobot {
     CommandBase.driveBase.resetLeftEncoder();
     CommandBase.driveBase.resetRightEncoder();
     CommandBase.driveBase.init();
+    CommandBase.driveBase.gyro().calibrate();
   }
 
   /**
@@ -82,7 +83,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotPeriodic() {
-    if(velocityCount == 10) {
+    if(velocityCount == 2) {
       CommandBase.driveBase.update();
       velocityCount = 0;
     }

@@ -1,5 +1,6 @@
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.Encoder;
@@ -83,6 +84,6 @@ public class DriveBase extends HHSensorDrive {
   }
 
   public void tank(double l, double r) {
-    robotDrive.tankDrive(l, r);
+    robotDrive.tankDrive(-r, -l);
   }
 }
