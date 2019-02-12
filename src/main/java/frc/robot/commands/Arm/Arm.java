@@ -25,9 +25,11 @@ public class Arm extends CommandBase {
 
     @Override
     protected void end() {
+      intake.moveArm(0);
     }
 
     @Override
     protected void interrupted() {
+      end();
     }
 }

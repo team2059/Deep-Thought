@@ -25,9 +25,11 @@ public class Wrist extends CommandBase {
 
     @Override
     protected void end() {
+      intake.moveWrist(0);
     }
 
     @Override
     protected void interrupted() {
+      end();
     }
 }

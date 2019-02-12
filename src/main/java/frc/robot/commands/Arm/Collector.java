@@ -1,4 +1,6 @@
-package frc.robot.commands;
+package frc.robot.commands.Arm;
+
+import frc.robot.commands.CommandBase;
 
 public class Collector extends CommandBase {
 
@@ -26,6 +28,6 @@ public class Collector extends CommandBase {
 
     @Override
     protected void end() {
-        elevator.carriageElevator(0);
+        intake.collector(0);
     }
 }
