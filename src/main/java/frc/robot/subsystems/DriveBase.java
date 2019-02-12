@@ -9,14 +9,14 @@ import edu.wpi.first.wpilibj.SPI.Port;
 import hhCore.subsystems.drive.HHSensorDrive;
 import frc.robot.RobotMap;
 import frc.robot.commands.Drive;
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 public class DriveBase extends HHSensorDrive {
 
-    WPI_TalonSRX leftMotor1 = new WPI_TalonSRX(RobotMap.leftMotor1);
-    WPI_TalonSRX leftMotor2 = new WPI_TalonSRX(RobotMap.leftMotor2);
-    WPI_TalonSRX rightMotor1 = new WPI_TalonSRX(RobotMap.rightMotor1);
-    WPI_TalonSRX rightMotor2 = new WPI_TalonSRX(RobotMap.rightMotor2);
+    WPI_VictorSPX leftMotor1 = new WPI_VictorSPX(RobotMap.leftMotor1);
+    WPI_VictorSPX leftMotor2 = new WPI_VictorSPX(RobotMap.leftMotor2);
+    WPI_VictorSPX rightMotor1 = new WPI_VictorSPX(RobotMap.rightMotor1);
+    WPI_VictorSPX rightMotor2 = new WPI_VictorSPX(RobotMap.rightMotor2);
 
     Encoder leftEncoder = new Encoder(RobotMap.leftEncoder1, RobotMap.leftEncoder2);
     Encoder rightEncoder = new Encoder(RobotMap.rightEncoder1, RobotMap.rightEncoder2);

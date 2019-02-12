@@ -18,14 +18,14 @@ public class RobotMap {
     // Drive Train
     public static int leftMotor1 = 3;
     public static int leftMotor2 = 2;
-    public static int rightMotor1 = 0;
+    public static int rightMotor1 = 12;
     public static int rightMotor2 = 1;
 
     // Drive Train Sensors
-    public static int leftEncoder1 = 1;
-    public static int leftEncoder2 = 2;
-    public static int rightEncoder1 = 3;
-    public static int rightEncoder2 = 4;
+    public static int leftEncoder1 = 0;
+    public static int leftEncoder2 = 1;
+    public static int rightEncoder1 = 2;
+    public static int rightEncoder2 = 3;
 
     /*
      * Carriage Elevator and Main Elevator
@@ -34,10 +34,10 @@ public class RobotMap {
     public static int carriageMotor = 6;
 
     // Hall Effect Sensors
-    public static int carriageLimitTop = 1;
-    public static int carriageLimitBottom = 2;
-    public static int elevatorLimitTop = 3;
-    public static int elevatorLimitBottom = 4;
+    public static int carriageLimitTop = 4;
+    public static int carriageLimitBottom = 5;
+    public static int elevatorLimitTop = 6;
+    public static int elevatorLimitBottom = 7;
 
     // Carraige Elevator PID
     public static double carriageElevatorP = 1;
@@ -54,8 +54,8 @@ public class RobotMap {
      */
     public static int armMotorPort = 10;
     public static int wristMotorPort = 8;
-    public static int armPotPort = 69;
-    public static int wristPotPort = 69;
+    public static int armPotPort = 1;
+    public static int wristPotPort = 0;
     public static int collectorMotorPort = 7;
 
     // Arm PID
@@ -71,7 +71,7 @@ public class RobotMap {
     /*
      * Hatch Arm and Collector
      */
-    public static int hatchArmPot = 69;
+    public static int hatchArmPot = 3;
     public static int hatchArmMotor = 4;
 
     // PID

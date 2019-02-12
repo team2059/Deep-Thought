@@ -24,13 +24,13 @@ public class Elevator extends Subsystem {
      *  Main Elevator Stage
      */
     public void mainElevate(double s) {
-        if (getElevatorLimitBottom() == true && s < 0) {
-            elevatorMotor.set(ControlMode.PercentOutput, 0);
-        } else if (getElevatorLimitTop() == true && s > 0) {
-            elevatorMotor.set(ControlMode.PercentOutput, 0);
-        } else {
-            elevatorMotor.set(ControlMode.PercentOutput, -s);
-        }
+        // if (getElevatorLimitBottom() == true && s < 0) {
+        //     elevatorMotor.set(ControlMode.PercentOutput, 0);
+        // } else if (getElevatorLimitTop() == true && s > 0) {
+        //     elevatorMotor.set(ControlMode.PercentOutput, 0);
+        // } else {
+        elevatorMotor.set(ControlMode.PercentOutput, s);
+        // }
     }
 
     public boolean getElevatorLimitBottom() {
@@ -49,13 +49,13 @@ public class Elevator extends Subsystem {
      *  Carriage Elevator Stage
      */
     public void carriageElevator(double s) {
-        if (getCarriageLimitBottom() == true && s < 0) {
-            carriageMotor.set(ControlMode.PercentOutput, 0);
-        } else if (getCarriageLimitTop() == true && s > 0) {
-            carriageMotor.set(ControlMode.PercentOutput, 0);
-        } else {
-            carriageMotor.set(ControlMode.PercentOutput, -s);
-        }
+        // if (getCarriageLimitBottom() == true && s < 0) {
+        //     carriageMotor.set(ControlMode.PercentOutput, 0);
+        // } else if (getCarriageLimitTop() == true && s > 0) {
+        //     carriageMotor.set(ControlMode.PercentOutput, 0);
+        // } else {
+        carriageMotor.set(ControlMode.PercentOutput, s);
+        // }
     }
 
     public boolean getCarriageLimitBottom() {
