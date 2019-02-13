@@ -34,10 +34,10 @@ public class RobotMap {
     public static int carriageMotor = 6;
 
     // Hall Effect Sensors
-    public static int carriageLimitTop = 4;
+    public static int carriageLimitTop = 7;
     public static int carriageLimitBottom = 5;
-    public static int elevatorLimitTop = 6;
-    public static int elevatorLimitBottom = 7;
+    public static int elevatorLimitTop = 8;
+    public static int elevatorLimitBottom = 6;
 
     // Carraige Elevator PID
     public static double carriageElevatorP = 1;
@@ -78,4 +78,8 @@ public class RobotMap {
     public static double hatchArmP = 1;
     public static double hatchArmI = 0;
     public static double hatchArmD = 0;
+
+    //Jack
+    public static int jackMotorPort = 9;
+    public static int jackWheelPort = 11;
 }

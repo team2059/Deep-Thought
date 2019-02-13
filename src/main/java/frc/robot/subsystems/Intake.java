@@ -14,11 +14,13 @@ public class Intake extends Subsystem {
     WPI_VictorSPX wristMotor = new WPI_VictorSPX(RobotMap.wristMotorPort);
     WPI_VictorSPX collectorMotor = new WPI_VictorSPX(RobotMap.collectorMotorPort);
 
+    final double armZeroDegree = 1.4160;
+    final double armNinetyDegree = 0.1892;
+    final double wristZeroDegree = .873;
+    final double wristMaxDegree = 1.58;
+
     AnalogInput armPot = new AnalogInput(RobotMap.armPotPort);
     AnalogInput wristPot = new AnalogInput(RobotMap.wristPotPort);
-
-    double armAngle = armPot.getVoltage();
-    double wristAngle = wristPot.getVoltage();
 
     double minArmAngle;
     double maxArmAngle;
@@ -26,37 +28,38 @@ public class Intake extends Subsystem {
     double maxWristAngle;
 
     public void moveArm(double s) {
-        // if (armAngle <= minArmAngle || armAngle >= maxArmAngle) {
-        //     armMotor.set(0);
-        // } else {
-        armMotor.set(s);
-        // }
+        if ((s < 0 && getArmAngle() >= -15) || (s > 0 && getArmAngle() <= 85)){ //Padded Limits by 5 for "safety"
+            armMotor.set(s);
+        } else {
+            armMotor.set(0);
+        }
     }
 
     public void moveWrist(double s) {
-        // if (wristAngle <= minWristAngle || wristAngle >= maxWristAngle) {
-        //     wristMotor.set(0);
-        // } else {
-        wristMotor.set(s);
-        // }
+        if ((s > 0 && getWristAngle() >= -25) || (s < 0 && getWristAngle() <= 45)){ //Padded Limits by 5 for "safety"
+            wristMotor.set(s);
+        } else {
+            wristMotor.set(0);
+        }
     }
 
     public void collector(double s) {
-        collectorMotor.set(s);
+        collectorMotor.set(-s);
     }
 
     /**
      * @return the armAngle
      */
     public double getArmAngle() {
-        return armAngle;
+        System.out.println(wristPot.getVoltage());
+        return ((-armPot.getVoltage() + armZeroDegree)/((armZeroDegree - armNinetyDegree)/90));
     }
 
     /**
      * @return the wristAngle
      */
     public double getWristAngle() {
-        return wristAngle;
+        return ((-wristPot.getVoltage() + wristZeroDegree)/((wristZeroDegree - wristMaxDegree)/50));
     }
 
     @Override

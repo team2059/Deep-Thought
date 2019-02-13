@@ -54,8 +54,12 @@ public class Elevator extends Subsystem {
         // } else if (getCarriageLimitTop() == true && s > 0) {
         //     carriageMotor.set(ControlMode.PercentOutput, 0);
         // } else {
-        carriageMotor.set(ControlMode.PercentOutput, s);
-        // }
+        if (s > 0 && getCarriageLimitTop() || s < 0 && getCarriageLimitBottom()){
+          carriageMotor.set(ControlMode.PercentOutput, -s);
+        } else {
+          carriageMotor.set(ControlMode.PercentOutput, 0);
+        }
+        
     }
 
     public boolean getCarriageLimitBottom() {

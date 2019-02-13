@@ -8,11 +8,13 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+
 import edu.wpi.first.wpilibj.Joystick;
 
 import frc.robot.commands.Elevator.CarriageElevate;
 import frc.robot.commands.Elevator.Elevate;
 import frc.robot.commands.Arm.Arm;
+import frc.robot.commands.Arm.Collector;
 import frc.robot.commands.Arm.Wrist;
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -29,6 +31,10 @@ public class OI {
     JoystickButton driveButton10 = new JoystickButton(driveJoystick, 10);
     JoystickButton driveButton11 = new JoystickButton(driveJoystick, 11);
     JoystickButton driveButton12 = new JoystickButton(driveJoystick, 12);
+    JoystickButton driveButton5 = new JoystickButton(driveJoystick, 5);
+    JoystickButton driveButton6 = new JoystickButton(driveJoystick, 6);
+    JoystickButton driveButton4 = new JoystickButton(driveJoystick, 4);
+
     // JoystickButton[] driveButtons = new JoystickButton[14];
     // JoystickButton[] sideButtons = new JoystickButton[13];
 
@@ -51,7 +57,11 @@ public class OI {
         driveButton8.whileHeld(new Elevate(-.3));
         driveButton9.whileHeld(new CarriageElevate(-.3));
         driveButton10.whileHeld(new CarriageElevate(.3));
-        driveButton11.whileHeld(new Arm(.2));
-        driveButton12.whileHeld(new Wrist(.2));
+        driveButton11.whileHeld(new Arm(-.2));
+        driveButton12.whileHeld(new Arm(.6));
+        driveButton4.whileHeld(new Wrist(.4));
+        driveButton6.whileHeld(new Wrist(-.2));
+        driveButton5.whileHeld(new Collector(.4));
+        
     }
 }

@@ -122,7 +122,10 @@ public class Robot extends TimedRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         SmartDashboard.putNumber("Arm Pot", CommandBase.intake.getArmAngle());
+        //System.out.println("Arm Pot: " + CommandBase.intake.getArmAngle());
         SmartDashboard.putNumber("Wrist Pot", CommandBase.intake.getWristAngle());
+        SmartDashboard.putBoolean("Carriage Top", CommandBase.elevator.getCarriageLimitTop());
+        SmartDashboard.putBoolean("Carriage Bottom", CommandBase.elevator.getCarriageLimitBottom());
     }
 
     /**
