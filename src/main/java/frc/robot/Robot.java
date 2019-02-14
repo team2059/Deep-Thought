@@ -126,6 +126,9 @@ public class Robot extends TimedRobot {
         SmartDashboard.putNumber("Wrist Pot", CommandBase.intake.getWristAngle());
         SmartDashboard.putBoolean("Carriage Top", CommandBase.elevator.getCarriageLimitTop());
         SmartDashboard.putBoolean("Carriage Bottom", CommandBase.elevator.getCarriageLimitBottom());
+        SmartDashboard.putBoolean("Elevator Top", CommandBase.elevator.getElevatorLimitTop());
+        SmartDashboard.putBoolean("Elevator Bottom", CommandBase.elevator.getElevatorLimitBottom());
+
     }
 
     /**
