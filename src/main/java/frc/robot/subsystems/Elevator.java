@@ -20,6 +20,11 @@ public class Elevator extends Subsystem {
     DigitalInput carriageLimitTop = new DigitalInput(RobotMap.carriageLimitTop);
     DigitalInput carriageLimitBottom = new DigitalInput(RobotMap.carriageLimitBottom);
 
+    private double elevatorTicks = -3275546;
+    private double elevatorInches = 32;
+    private double carriageTicks = -2926134;
+    private double carriageInches = 28.5;
+
     /*
      *  Main Elevator Stage
      */
@@ -40,7 +45,11 @@ public class Elevator extends Subsystem {
     }
 
     public double getElevatorEncoder() {
-        return elevatorMotor.getSelectedSensorPosition(0) / 1;
+        return elevatorMotor.getSelectedSensorPosition(0) * elevatorInches / elevatorTicks;
+    }
+
+    public void setElevatorEncoder(int d) {
+        elevatorMotor.setSelectedSensorPosition( (int) (d * elevatorTicks / elevatorInches), 0, 0);
     }
 
     /*
@@ -64,7 +73,11 @@ public class Elevator extends Subsystem {
     }
 
     public double getCarriageEncoder() {
-        return carriageMotor.getSelectedSensorPosition(0) / 1;
+        return carriageMotor.getSelectedSensorPosition(0) * carriageInches / carriageTicks;
+    }
+
+    public void setCarrigeEncoder(int d) {
+        carriageMotor.setSelectedSensorPosition( (int) (d * carriageTicks / carriageInches), 0, 0);
     }
 
     @Override
