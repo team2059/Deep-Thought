@@ -29,10 +29,14 @@ public class Elevator extends Subsystem {
      *  Main Elevator Stage
      */
     public void mainElevate(double s) {
-        if (s > 0 && getElevatorLimitTop() || s < 0 && getElevatorLimitBottom()){
-          elevatorMotor.set(ControlMode.PercentOutput, -s);
-        } else {
+        if (s > 0 && !getElevatorLimitTop()) {
+          setElevatorEncoder(elevatorInches);
           elevatorMotor.set(ControlMode.PercentOutput, 0);
+        } else if (s < 0 && !getElevatorLimitBottom()) {
+          setElevatorEncoder(0);
+          elevatorMotor.set(ControlMode.PercentOutput, 0);
+        } else {
+          elevatorMotor.set(ControlMode.PercentOutput, -s);
         }
     }
 
@@ -48,7 +52,7 @@ public class Elevator extends Subsystem {
         return elevatorMotor.getSelectedSensorPosition(0) * elevatorInches / elevatorTicks;
     }
 
-    public void setElevatorEncoder(int d) {
+    public void setElevatorEncoder(double d) {
         elevatorMotor.setSelectedSensorPosition( (int) (d * elevatorTicks / elevatorInches), 0, 0);
     }
 
@@ -56,10 +60,14 @@ public class Elevator extends Subsystem {
      *  Carriage Elevator Stage
      */
     public void carriageElevator(double s) {
-        if (s > 0 && getCarriageLimitTop() || s < 0 && getCarriageLimitBottom()){
-          carriageMotor.set(ControlMode.PercentOutput, -s);
-        } else {
+        if (s > 0 && !getCarriageLimitTop()){
+          setCarrigeEncoder(carriageInches);
           carriageMotor.set(ControlMode.PercentOutput, 0);
+        } else if (s < 0 && !getCarriageLimitBottom()) {
+          setCarrigeEncoder(0);
+          carriageMotor.set(ControlMode.PercentOutput, 0);
+        } else {
+          carriageMotor.set(ControlMode.PercentOutput, -s);
         }
 
     }
@@ -76,7 +84,7 @@ public class Elevator extends Subsystem {
         return carriageMotor.getSelectedSensorPosition(0) * carriageInches / carriageTicks;
     }
 
-    public void setCarrigeEncoder(int d) {
+    public void setCarrigeEncoder(double d) {
         carriageMotor.setSelectedSensorPosition( (int) (d * carriageTicks / carriageInches), 0, 0);
     }
 
