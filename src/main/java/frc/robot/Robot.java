@@ -108,6 +108,8 @@ public class Robot extends TimedRobot {
     public void teleopInit() {
         CommandBase.elevator.setCarrigeEncoder(0);
         CommandBase.elevator.setElevatorEncoder(0);
+        CommandBase.driveBase.resetLeftEncoder();
+        CommandBase.driveBase.resetRightEncoder();
         // This makes sure that the autonomous stops running when
         // teleop starts running. If you want the autonomous to
         // continue until interrupted by another command, remove
@@ -132,6 +134,8 @@ public class Robot extends TimedRobot {
         SmartDashboard.putBoolean("Elevator Bottom", CommandBase.elevator.getElevatorLimitBottom());
         SmartDashboard.putNumber("Carriage Encoder", CommandBase.elevator.getCarriageEncoder());
         SmartDashboard.putNumber("Elevator Encoder", CommandBase.elevator.getElevatorEncoder());
+        SmartDashboard.putNumber("Left Drive Encoder", CommandBase.driveBase.getLeftEncoder());
+        SmartDashboard.putNumber("Right Drive Encoder", CommandBase.driveBase.getRightEncoder());
 
     }
 

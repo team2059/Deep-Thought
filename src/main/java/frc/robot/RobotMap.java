@@ -22,16 +22,16 @@ public class RobotMap {
     public static int rightMotor2 = 1;
 
     // Drive Train Sensors
-    public static int leftEncoder1 = 0;
-    public static int leftEncoder2 = 1;
-    public static int rightEncoder1 = 2;
-    public static int rightEncoder2 = 3;
+    public static int leftEncoder1 = 2;
+    public static int leftEncoder2 = 3;
+    public static int rightEncoder1 = 0;
+    public static int rightEncoder2 = 1;
 
     /*
      * Carriage Elevator and Main Elevator
      */
     public static int elevatorMotor = 5;
-    public static int carriageMotor = 6;
+    public static int carriageMotor = 7;
 
     // Hall Effect Sensors
     public static int carriageLimitTop = 7;
