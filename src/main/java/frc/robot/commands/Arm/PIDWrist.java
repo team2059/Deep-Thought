@@ -10,7 +10,8 @@ public class PIDWrist extends PIDCommand {
     public PIDWrist(double angle) {
         super(RobotMap.wristP, RobotMap.wristI, RobotMap.wristD);
 
-        setTimeout(3000);
+        setTimeout(3);
+        setInputRange(-30, 50);
         setSetpoint(angle);
     }
 
@@ -19,8 +20,7 @@ public class PIDWrist extends PIDCommand {
 
     @Override
     protected double returnPIDInput() {
-        // return CommandBase.intake.getWristAngle();
-        return 0;
+        return CommandBase.intake.getWristAngle();
     }
 
     @Override
@@ -30,7 +30,7 @@ public class PIDWrist extends PIDCommand {
 
     @Override
     protected boolean isFinished() {
-        return isTimedOut() || Math.abs(getSetpoint() - getPosition()) < .5;
+        return isTimedOut(); // || Math.abs(getSetpoint() - getPosition()) < .5;
     }
 
     protected void end() {

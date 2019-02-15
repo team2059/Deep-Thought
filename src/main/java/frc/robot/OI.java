@@ -16,6 +16,7 @@ import frc.robot.commands.Elevator.Elevate;
 import frc.robot.commands.Arm.Arm;
 import frc.robot.commands.Arm.Collector;
 import frc.robot.commands.Arm.Wrist;
+import frc.robot.commands.Arm.PIDWrist;
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
@@ -34,6 +35,7 @@ public class OI {
     JoystickButton driveButton5 = new JoystickButton(driveJoystick, 5);
     JoystickButton driveButton6 = new JoystickButton(driveJoystick, 6);
     JoystickButton driveButton4 = new JoystickButton(driveJoystick, 4);
+    JoystickButton driveButton3 = new JoystickButton(driveJoystick, 3);
 
     // JoystickButton[] driveButtons = new JoystickButton[14];
     // JoystickButton[] sideButtons = new JoystickButton[13];
@@ -53,15 +55,15 @@ public class OI {
     }
 
     public OI() {
-        driveButton7.whileHeld(new Elevate(.3));
-        driveButton8.whileHeld(new Elevate(-.3));
+        driveButton7.whileHeld(new Elevate(1));
+        driveButton8.whileHeld(new Elevate(-1));
         driveButton9.whileHeld(new CarriageElevate(-.3));
         driveButton10.whileHeld(new CarriageElevate(.3));
         driveButton11.whileHeld(new Arm(-.2));
-        driveButton12.whileHeld(new Arm(.6));
+        driveButton12.whileHeld(new Arm(.3));
         driveButton4.whileHeld(new Wrist(.4));
         driveButton6.whileHeld(new Wrist(-.2));
-        driveButton5.whileHeld(new Collector(.4));
-        
+        // driveButton5.whileHeld(new PIDWrist(45));
+        // driveButton3.whileHeld(new PIDWrist(-25));
     }
 }

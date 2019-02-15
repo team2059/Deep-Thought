@@ -31,7 +31,7 @@ public class RobotMap {
      * Carriage Elevator and Main Elevator
      */
     public static int elevatorMotor = 5;
-    public static int carriageMotor = 7;
+    public static int carriageMotor = 6;
 
     // Hall Effect Sensors
     public static int carriageLimitTop = 7;
@@ -64,7 +64,7 @@ public class RobotMap {
     public static double armD = 0;
 
     // Wrist PID
-    public static double wristP = 1;
+    public static double wristP = .2;
     public static double wristI = 0;
     public static double wristD = 0;
 

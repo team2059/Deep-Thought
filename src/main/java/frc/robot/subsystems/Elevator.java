@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.DigitalInput;
 
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import frc.robot.RobotMap;
+import hhCore.utils.Dampener;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.ControlMode;
@@ -36,7 +37,8 @@ public class Elevator extends Subsystem {
           setElevatorEncoder(0);
           elevatorMotor.set(ControlMode.PercentOutput, 0);
         } else {
-          elevatorMotor.set(ControlMode.PercentOutput, -s);
+          elevatorMotor.set(ControlMode.PercentOutput, Dampener.bidirectional(-s, getElevatorEncoder(), 7, 0, 30, 32));
+          // elevatorMotor.set(ControlMode.PercentOutput, -s);
         }
     }
 
