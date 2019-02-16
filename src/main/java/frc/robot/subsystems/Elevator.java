@@ -55,6 +55,7 @@ public class Elevator extends Subsystem {
     }
 
     public void setElevatorEncoder(double d) {
+        System.out.println("set elevator encoder");
         elevatorMotor.setSelectedSensorPosition( (int) (d * elevatorTicks / elevatorInches), 0, 0);
     }
 
@@ -87,6 +88,7 @@ public class Elevator extends Subsystem {
     }
 
     public void setCarrigeEncoder(double d) {
+        System.out.println("set carriage encoder");
         carriageMotor.setSelectedSensorPosition( (int) (d * carriageTicks / carriageInches), 0, 0);
     }
 

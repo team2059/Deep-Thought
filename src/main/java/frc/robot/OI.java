@@ -15,11 +15,14 @@ import frc.robot.commands.Elevator.CarriageElevate;
 import frc.robot.commands.Elevator.Elevate;
 import frc.robot.commands.Elevator.PIDElevate;
 import frc.robot.commands.Elevator.PIDCarriageElevate;
+import frc.robot.commands.HatchPosition;
+import frc.robot.commands.HatchPickup;
 import frc.robot.commands.Arm.Arm;
 import frc.robot.commands.Arm.Collector;
 import frc.robot.commands.Arm.Wrist;
 import frc.robot.commands.Arm.PIDWrist;
 import frc.robot.commands.Jack.*;
+import frc.robot.subsystems.HatchArm;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -46,6 +49,8 @@ public class OI {
     JoystickButton sideButton3 = new JoystickButton(sideJoystick, 3);
     JoystickButton sideButton6 = new JoystickButton(sideJoystick, 6);
     JoystickButton sideButton4 = new JoystickButton(sideJoystick, 4);
+    JoystickButton sideButton7 = new JoystickButton(sideJoystick, 7);
+    JoystickButton sideButton8 = new JoystickButton(sideJoystick, 8);
 
     // JoystickButton[] driveButtons = new JoystickButton[14];
     // JoystickButton[] sideButtons = new JoystickButton[13];
@@ -79,8 +84,8 @@ public class OI {
         // driveButton3.whileHeld(new PIDWrist(-25));
         // 8.7 carriage collector
 
-        sideButton3.whenPressed(new PIDElevate(20));
-        sideButton5.whenPressed(new PIDElevate(10));
+        sideButton3.whenPressed(new HatchPosition());
+        sideButton5.whenPressed(new HatchPickup());
         sideButton6.whenPressed(new PIDCarriageElevate(20));
         sideButton4.whenPressed(new PIDCarriageElevate(10));
     }

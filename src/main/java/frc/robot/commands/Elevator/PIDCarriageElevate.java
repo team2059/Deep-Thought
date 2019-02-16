@@ -29,11 +29,10 @@ public class PIDCarriageElevate extends PIDCommand {
 
     @Override
     protected boolean isFinished() {
-        return isTimedOut()  || Math.abs(getSetpoint() - getPosition()) < .5;
+        return isTimedOut() || Math.abs(getSetpoint() - getPosition()) < .5;
     }
 
     protected void end() {
-        System.out.println("End");
         setTimeout(0);
     }
 

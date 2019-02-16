@@ -54,7 +54,6 @@ public class Intake extends Subsystem {
      * @return the armAngle
      */
     public double getArmAngle() {
-        System.out.println(wristPot.getVoltage());
         return ((-armPot.getVoltage() + armZeroDegree) / ((armZeroDegree - armNinetyDegree) / 90));
     }
 
