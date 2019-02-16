@@ -18,6 +18,7 @@ import frc.robot.commands.Elevator.PIDCarriageElevate;
 import frc.robot.commands.HatchPosition;
 import frc.robot.commands.HatchPickup;
 import frc.robot.commands.Arm.Arm;
+import frc.robot.commands.Arm.ArmDeploy;
 import frc.robot.commands.Arm.Collector;
 import frc.robot.commands.Arm.Wrist;
 import frc.robot.commands.Arm.PIDWrist;
@@ -86,7 +87,9 @@ public class OI {
 
         sideButton3.whenPressed(new HatchPosition());
         sideButton5.whenPressed(new HatchPickup());
-        sideButton6.whenPressed(new PIDCarriageElevate(20));
-        sideButton4.whenPressed(new PIDCarriageElevate(10));
+        //sideButton6.whenPressed(new PIDCarriageElevate(RobotMap.carriageStart));
+        //sideButton4.whenPressed(new ArmDeploy());
+        sideButton6.whileHeld(new Jack(.3));
+        sideButton4.whileHeld(new JackWheel(1));
     }
 }

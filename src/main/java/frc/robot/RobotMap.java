@@ -32,6 +32,7 @@ public class RobotMap {
      */
     public static int elevatorMotor = 5;
     public static int carriageMotor = 6;
+    public static double carriageStart = 11.35091;
 
     // Hall Effect Sensors
     public static int carriageLimitTop = 7;

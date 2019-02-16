@@ -106,7 +106,7 @@ public class Robot extends TimedRobot {
 
     @Override
     public void teleopInit() {
-        CommandBase.elevator.setCarrigeEncoder(11.35091);
+        CommandBase.elevator.setCarrigeEncoder(RobotMap.carriageStart);
         CommandBase.elevator.setElevatorEncoder(0);
         CommandBase.driveBase.resetLeftEncoder();
         CommandBase.driveBase.resetRightEncoder();

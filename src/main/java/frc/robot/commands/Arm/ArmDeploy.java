@@ -1,31 +1,30 @@
-package frc.robot.commands.Jack;
+package frc.robot.commands.Arm;
 
 import frc.robot.commands.CommandBase;
 
-public class JackWheel extends CommandBase {
-
-    double wheelSpeed;
-    public JackWheel(double jS) {
-        wheelSpeed = jS;
+public class ArmDeploy extends CommandBase {
+    public ArmDeploy() {
     }
+
 
     @Override
     protected void initialize() {
+        setTimeout(1);
     }
 
     @Override
     protected void execute() {
-        jack.moveWheel(-wheelSpeed);
+        intake.moveArm(-.1);
     }
 
     @Override
     protected boolean isFinished() {
-        return false;
+        return isTimedOut();
     }
 
     @Override
     protected void end() {
-        jack.moveWheel(0);
+        intake.moveArm(0);
     }
 
     @Override
