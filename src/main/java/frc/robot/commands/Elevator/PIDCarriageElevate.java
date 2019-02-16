@@ -10,11 +10,11 @@ public class PIDCarriageElevate extends PIDCommand {
     public PIDCarriageElevate(double inches) {
         super(RobotMap.carriageElevatorP, RobotMap.carriageElevatorI, RobotMap.carriageElevatorD);
 
-        setTimeout(3000);
         setSetpoint(inches);
     }
 
     protected void initialize() {
+        setTimeout(6);
     }
 
     @Override
@@ -29,10 +29,11 @@ public class PIDCarriageElevate extends PIDCommand {
 
     @Override
     protected boolean isFinished() {
-        return isTimedOut() || Math.abs(getSetpoint() - getPosition()) < .5;
+        return isTimedOut()  || Math.abs(getSetpoint() - getPosition()) < .5;
     }
 
     protected void end() {
+        System.out.println("End");
         setTimeout(0);
     }
 

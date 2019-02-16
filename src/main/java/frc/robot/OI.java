@@ -13,10 +13,14 @@ import edu.wpi.first.wpilibj.Joystick;
 
 import frc.robot.commands.Elevator.CarriageElevate;
 import frc.robot.commands.Elevator.Elevate;
+import frc.robot.commands.Elevator.PIDElevate;
+import frc.robot.commands.Elevator.PIDCarriageElevate;
 import frc.robot.commands.Arm.Arm;
 import frc.robot.commands.Arm.Collector;
 import frc.robot.commands.Arm.Wrist;
 import frc.robot.commands.Arm.PIDWrist;
+import frc.robot.commands.Jack.*;
+
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
@@ -36,6 +40,12 @@ public class OI {
     JoystickButton driveButton6 = new JoystickButton(driveJoystick, 6);
     JoystickButton driveButton4 = new JoystickButton(driveJoystick, 4);
     JoystickButton driveButton3 = new JoystickButton(driveJoystick, 3);
+    JoystickButton driveButton1 = new JoystickButton(driveJoystick, 1);
+
+    JoystickButton sideButton5 = new JoystickButton(sideJoystick, 5);
+    JoystickButton sideButton3 = new JoystickButton(sideJoystick, 3);
+    JoystickButton sideButton6 = new JoystickButton(sideJoystick, 6);
+    JoystickButton sideButton4 = new JoystickButton(sideJoystick, 4);
 
     // JoystickButton[] driveButtons = new JoystickButton[14];
     // JoystickButton[] sideButtons = new JoystickButton[13];
@@ -56,14 +66,22 @@ public class OI {
 
     public OI() {
         driveButton7.whileHeld(new Elevate(1));
-        driveButton8.whileHeld(new Elevate(-1));
+        driveButton8.whileHeld(new Elevate(-.3));
         driveButton9.whileHeld(new CarriageElevate(-.3));
         driveButton10.whileHeld(new CarriageElevate(.3));
         driveButton11.whileHeld(new Arm(-.2));
         driveButton12.whileHeld(new Arm(.3));
         driveButton4.whileHeld(new Wrist(.4));
         driveButton6.whileHeld(new Wrist(-.2));
+        driveButton1.whileHeld(new Collector(.5));
+        driveButton3.whileHeld(new Collector(-.5));
         // driveButton5.whileHeld(new PIDWrist(45));
         // driveButton3.whileHeld(new PIDWrist(-25));
+        // 8.7 carriage collector
+
+        sideButton3.whenPressed(new PIDElevate(20));
+        sideButton5.whenPressed(new PIDElevate(10));
+        sideButton6.whenPressed(new PIDCarriageElevate(20));
+        sideButton4.whenPressed(new PIDCarriageElevate(10));
     }
 }

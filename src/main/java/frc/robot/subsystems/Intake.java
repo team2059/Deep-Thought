@@ -30,7 +30,8 @@ public class Intake extends Subsystem {
     public void moveArm(double s) {
         double boost = Math.min(Math.abs(s / 2), .5);
         double cos = Math.cos(Math.toRadians(getArmAngle())) * boost;
-        if ((s < 0 && getArmAngle() >= -15) || (s > 0 && getArmAngle() <= 85)){ //Padded Limits by 5 for "safety"
+
+        if ((s < 0 && getArmAngle() >= -15) || (s > 0 && getArmAngle() <= 85)) { //Padded Limits by 5 for "safety"
             armMotor.set(s + cos);
         } else {
             armMotor.set(0);
@@ -38,7 +39,7 @@ public class Intake extends Subsystem {
     }
 
     public void moveWrist(double s) {
-        if ((s > 0 && getWristAngle() >= -25) || (s < 0 && getWristAngle() <= 45)){ //Padded Limits by 5 for "safety"
+        if ((s > 0 && getWristAngle() >= -25) || (s < 0 && getWristAngle() <= 45)) { //Padded Limits by 5 for "safety"
             wristMotor.set(s);
         } else {
             wristMotor.set(0);
@@ -54,14 +55,14 @@ public class Intake extends Subsystem {
      */
     public double getArmAngle() {
         System.out.println(wristPot.getVoltage());
-        return ((-armPot.getVoltage() + armZeroDegree)/((armZeroDegree - armNinetyDegree)/90));
+        return ((-armPot.getVoltage() + armZeroDegree) / ((armZeroDegree - armNinetyDegree) / 90));
     }
 
     /**
      * @return the wristAngle
      */
     public double getWristAngle() {
-        return ((-wristPot.getVoltage() + wristZeroDegree)/((wristZeroDegree - wristMaxDegree)/50));
+        return ((-wristPot.getVoltage() + wristZeroDegree) / ((wristZeroDegree - wristMaxDegree) / 50));
     }
 
     @Override

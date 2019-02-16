@@ -40,14 +40,14 @@ public class RobotMap {
     public static int elevatorLimitBottom = 8;
 
     // Carraige Elevator PID
-    public static double carriageElevatorP = 1;
+    public static double carriageElevatorP = .7;
     public static double carriageElevatorI = 0;
     public static double carriageElevatorD = 0;
 
     // Main Elevator PID
-    public static double mainElevatorP = 1;
+    public static double mainElevatorP = .7;
     public static double mainElevatorI = 0;
-    public static double mainElevatorD = 0;
+    public static double mainElevatorD = .02;
 
     /*
      * Intake Arm and Wrist collector

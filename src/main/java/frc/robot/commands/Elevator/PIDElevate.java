@@ -10,11 +10,11 @@ public class PIDElevate extends PIDCommand {
     public PIDElevate(double inches) {
         super(RobotMap.mainElevatorP, RobotMap.mainElevatorI, RobotMap.mainElevatorD);
 
-        setTimeout(3000);
         setSetpoint(inches);
     }
 
     protected void initialize() {
+        setTimeout(6);
     }
 
     @Override

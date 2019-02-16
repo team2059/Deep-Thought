@@ -1,21 +1,21 @@
-package frc.robot.commands.Arm;
+package frc.robot.commands.Jack;
 
 import frc.robot.commands.CommandBase;
 
-public class Wrist extends CommandBase {
-    double speed;
-    public Wrist(double s) {
-        speed = s;
+public class JackWheel extends CommandBase {
+
+    double wheelSpeed;
+    public JackWheel(double jS) {
+        wheelSpeed = jS;
     }
 
-    // Called just before this Command runs the first time
     @Override
     protected void initialize() {
     }
 
     @Override
     protected void execute() {
-        intake.moveWrist(speed);
+        jack.moveWheel(wheelSpeed);
     }
 
     @Override
@@ -25,11 +25,10 @@ public class Wrist extends CommandBase {
 
     @Override
     protected void end() {
-        intake.moveWrist(0);
+        jack.moveWheel(0);
     }
 
     @Override
     protected void interrupted() {
-        end();
     }
 }

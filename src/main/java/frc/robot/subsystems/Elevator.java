@@ -31,14 +31,14 @@ public class Elevator extends Subsystem {
      */
     public void mainElevate(double s) {
         if (s > 0 && !getElevatorLimitTop()) {
-          setElevatorEncoder(elevatorInches);
-          elevatorMotor.set(ControlMode.PercentOutput, 0);
+            setElevatorEncoder(elevatorInches);
+            elevatorMotor.set(ControlMode.PercentOutput, 0);
         } else if (s < 0 && !getElevatorLimitBottom()) {
-          setElevatorEncoder(0);
-          elevatorMotor.set(ControlMode.PercentOutput, 0);
+            setElevatorEncoder(0);
+            elevatorMotor.set(ControlMode.PercentOutput, 0);
         } else {
-          elevatorMotor.set(ControlMode.PercentOutput, Dampener.bidirectional(-s, getElevatorEncoder(), 7, 0, 30, 32));
-          // elevatorMotor.set(ControlMode.PercentOutput, -s);
+            elevatorMotor.set(ControlMode.PercentOutput, Dampener.bidirectional(-s, getElevatorEncoder(), 7, 0, 31, 32));
+            // elevatorMotor.set(ControlMode.PercentOutput, -s);
         }
     }
 
@@ -62,14 +62,14 @@ public class Elevator extends Subsystem {
      *  Carriage Elevator Stage
      */
     public void carriageElevator(double s) {
-        if (s > 0 && !getCarriageLimitTop()){
-          setCarrigeEncoder(carriageInches);
-          carriageMotor.set(ControlMode.PercentOutput, 0);
+        if (s > 0 && !getCarriageLimitTop()) {
+            setCarrigeEncoder(carriageInches);
+            carriageMotor.set(ControlMode.PercentOutput, 0);
         } else if (s < 0 && !getCarriageLimitBottom()) {
-          setCarrigeEncoder(0);
-          carriageMotor.set(ControlMode.PercentOutput, 0);
+            setCarrigeEncoder(0);
+            carriageMotor.set(ControlMode.PercentOutput, 0);
         } else {
-          carriageMotor.set(ControlMode.PercentOutput, -s);
+            carriageMotor.set(ControlMode.PercentOutput, -s);
         }
 
     }
