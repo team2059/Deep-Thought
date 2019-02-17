@@ -15,7 +15,7 @@ public class JackWheel extends CommandBase {
 
     @Override
     protected void execute() {
-        jack.moveWheel(-wheelSpeed);
+        jack.moveWheel(wheelSpeed);
     }
 
     @Override

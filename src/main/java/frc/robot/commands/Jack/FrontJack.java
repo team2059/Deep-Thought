@@ -1,11 +1,12 @@
-package frc.robot.commands;
+package frc.robot.commands.Jack;
 
 import frc.robot.commands.CommandBase;
 
-public class HatchArm extends CommandBase {
-    double speed;
-    public HatchArm(double s) {
-        speed = s;
+public class FrontJack extends CommandBase {
+
+    double motorSpeed;
+    public FrontJack(double mS) {
+        motorSpeed = mS;
     }
 
 
@@ -15,7 +16,7 @@ public class HatchArm extends CommandBase {
 
     @Override
     protected void execute() {
-        hatchArm.moveHatchArm(speed);
+        jack.moveFrontJack(motorSpeed);
     }
 
     @Override
@@ -25,9 +26,11 @@ public class HatchArm extends CommandBase {
 
     @Override
     protected void end() {
+        jack.moveFrontJack(0);
     }
 
     @Override
     protected void interrupted() {
+        end();
     }
 }

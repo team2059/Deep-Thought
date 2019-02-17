@@ -7,12 +7,6 @@
 
 package frc.robot;
 
-/**
- * The RobotMap is a mapping from the ports sensors and actuators are wired into
- * to a variable name. This provides flexibility changing wiring, makes checking
- * the wiring easier and significantly reduces the number of magic numbers
- * floating around.
- */
 public class RobotMap {
 
     // Drive Train
@@ -83,4 +77,11 @@ public class RobotMap {
     //Jack
     public static int jackMotorPort = 9;
     public static int jackWheelPort = 11;
+    public static int frontJackPort = 4;
+    public static int frontJackPotPort = 69;
+
+    //Static Elevator Heights
+    public static double hatchLevelOneHeight = 6.5544;
+    public static double hatchLevelTwoHeight = 34.5543;
+    public static double hatchLevelThreeHeight = 62.5543;
 }

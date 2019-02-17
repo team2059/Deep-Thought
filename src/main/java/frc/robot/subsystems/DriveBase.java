@@ -75,6 +75,7 @@ public class DriveBase extends HHSensorDrive {
     }
 
     public void driveBase(double x, double y) {
+        System.out.println("X: " + x + " Y: " + y);
         robotDrive.arcadeDrive(y, x);
     }
 

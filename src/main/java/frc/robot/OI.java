@@ -3,7 +3,7 @@
 /* Open Source Software - may be modified and shared by FRC teams. The code   */
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
-/*----------------------------------------------------------------------------*/
+/*---------------------------------------------------------------\-------------*/
 
 package frc.robot;
 
@@ -12,18 +12,18 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.Joystick;
 
 import frc.robot.commands.Elevator.CarriageElevate;
+import frc.robot.commands.Elevator.PIDCarriageLower;
 import frc.robot.commands.Elevator.Elevate;
 import frc.robot.commands.Elevator.PIDElevate;
 import frc.robot.commands.Elevator.PIDCarriageElevate;
-import frc.robot.commands.HatchPosition;
-import frc.robot.commands.HatchPickup;
+import frc.robot.commands.Auto.HatchPickup;
 import frc.robot.commands.Arm.Arm;
 import frc.robot.commands.Arm.ArmDeploy;
 import frc.robot.commands.Arm.Collector;
 import frc.robot.commands.Arm.Wrist;
 import frc.robot.commands.Arm.PIDWrist;
 import frc.robot.commands.Jack.*;
-import frc.robot.subsystems.HatchArm;
+import frc.robot.commands.Auto.HatchSetLevel;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -52,6 +52,9 @@ public class OI {
     JoystickButton sideButton4 = new JoystickButton(sideJoystick, 4);
     JoystickButton sideButton7 = new JoystickButton(sideJoystick, 7);
     JoystickButton sideButton8 = new JoystickButton(sideJoystick, 8);
+    JoystickButton sideButton12 = new JoystickButton(sideJoystick, 12);
+    JoystickButton sideButton1 = new JoystickButton(sideJoystick, 1);
+    JoystickButton sideButton2 = new JoystickButton(sideJoystick, 2);
 
     // JoystickButton[] driveButtons = new JoystickButton[14];
     // JoystickButton[] sideButtons = new JoystickButton[13];
@@ -85,11 +88,15 @@ public class OI {
         // driveButton3.whileHeld(new PIDWrist(-25));
         // 8.7 carriage collector
 
-        sideButton3.whenPressed(new HatchPosition());
-        sideButton5.whenPressed(new HatchPickup());
+        sideButton3.whileHeld(new FrontJack(-1));
+        sideButton5.whileHeld(new FrontJack(.3));
         //sideButton6.whenPressed(new PIDCarriageElevate(RobotMap.carriageStart));
         //sideButton4.whenPressed(new ArmDeploy());
         sideButton6.whileHeld(new Jack(.3));
-        sideButton4.whileHeld(new JackWheel(1));
+        sideButton4.whileHeld(new Jack(-3));
+        sideButton1.whileHeld(new JackWheel(.7));
+        sideButton2.whileHeld(new JackWheel(-.5));
+        sideButton12.whenPressed(new PIDCarriageLower());
+
     }
 }

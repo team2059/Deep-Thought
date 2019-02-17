@@ -1,30 +1,29 @@
-package frc.robot.commands;
+package frc.robot.commands.Elevator;
 
 import frc.robot.RobotMap;
 import frc.robot.commands.CommandBase;
 
 import edu.wpi.first.wpilibj.command.PIDCommand;
 
-public class PIDHatchArm extends PIDCommand {
+public class PIDCarriageLower extends PIDCommand {
 
-    public PIDHatchArm(double angle) {
-        super(RobotMap.hatchArmP, RobotMap.hatchArmI, RobotMap.hatchArmD);
-
-        setTimeout(3000);
-        setSetpoint(angle);
+    public PIDCarriageLower() {
+        super(RobotMap.carriageElevatorP, RobotMap.carriageElevatorI, RobotMap.carriageElevatorD);
     }
 
     protected void initialize() {
+        setTimeout(6);
+        setSetpoint(CommandBase.elevator.getCarriageEncoder() - 2);
     }
 
     @Override
     protected double returnPIDInput() {
-        return CommandBase.hatchArm.getHatchAngle();
+        return CommandBase.elevator.getCarriageEncoder();
     }
 
     @Override
     protected void usePIDOutput(double speed) {
-        CommandBase.hatchArm.moveHatchArm(speed);
+        CommandBase.elevator.carriageElevator(speed);
     }
 
     @Override
