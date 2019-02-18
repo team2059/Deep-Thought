@@ -137,6 +137,7 @@ public class Robot extends TimedRobot {
         SmartDashboard.putNumber("Right Drive Encoder", CommandBase.driveBase.getRightEncoder());
         SmartDashboard.putNumber("Front Jack Pot", CommandBase.jack.getJackAngle());
         SmartDashboard.putNumber("Jack Encoder", CommandBase.jack.getJackEncoder());
+        SmartDashboard.putBoolean("Jack Top Limit", CommandBase.jack.getjackTopLimit());
     }
 
     /**

@@ -27,14 +27,10 @@ public class holdFrontJack extends Command {
      */
     @Override
     protected void execute() {
-        if(CommandBase.jack.getJackAngle() >= 0){
-            CommandBase.jack.moveFrontJack(-1);
-        } else if (CommandBase.jack.getJackAngle() >= -25){
-            CommandBase.jack.moveFrontJack(-.5);
-        } else if (CommandBase.jack.getJackAngle() <= -55 && CommandBase.jack.getJackAngle() >= -50){
-            CommandBase.jack.moveFrontJack(-.01);
-        } else {
+        if (CommandBase.jack.getJackEncoder() > -57 && CommandBase.jack.getJackEncoder() < -50){
             CommandBase.jack.moveFrontJack(0);
+        } else {
+            CommandBase.jack.moveFrontJack(-.2);
         }
     }
 
@@ -71,7 +67,7 @@ public class holdFrontJack extends Command {
      */
     @Override
     protected void end() {
-       CommandBase.jack.moveFrontJack(0);
+       CommandBase.jack.setFrontJack(0);
     }
 
 

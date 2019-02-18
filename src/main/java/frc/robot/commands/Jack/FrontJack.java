@@ -16,7 +16,7 @@ public class FrontJack extends CommandBase {
 
     @Override
     protected void execute() {
-        jack.moveFrontJack(motorSpeed);
+        jack.setFrontJack(motorSpeed);
     }
 
     @Override
@@ -26,7 +26,8 @@ public class FrontJack extends CommandBase {
 
     @Override
     protected void end() {
-        jack.moveFrontJack(0);
+        System.out.println("Ended Front Jack");
+        jack.setFrontJack(0);
     }
 
     @Override

@@ -77,7 +77,7 @@ public class RobotMap {
     public static int frontJackPotPort = 2;
     public static int jackEncoderPort1 = 9;
     public static int jackEncoderPort2 = 8;
-    public static int jackTopLimitPort = 12;
+    public static int jackTopLimitPort = 15;
 
     //Static Elevator Heights
     public static double hatchLevelOneHeight = 6.5544;

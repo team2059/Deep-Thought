@@ -23,27 +23,37 @@ public class Jack extends Subsystem {
 
     AnalogInput frontJackPot = new AnalogInput(RobotMap.frontJackPotPort);
 
-    final double fJZeroDegree = 2.6684;
-    final double fJFinalDegree = 1.66;
+    final double fJZeroDegree = 2.425;
+    final double fJFinalDegree = .6237;
 
     public void moveJack(double motorSpeed) {
-        jackMotor.set(-motorSpeed);
+        if (getJackEncoder() < 21 && motorSpeed <= 0){
+            jackMotor.set(-motorSpeed);
+        } else if (getjackTopLimit() && motorSpeed >= 0){
+            jackMotor.set(-motorSpeed);
+        } else {
+            if (!getjackTopLimit()){
+                jackEncoder.reset();
+            }
+            jackMotor.set(0);
+        }
     }
 
     public void moveWheel(double wheelSpeed) {
         jackWheel.set(-wheelSpeed);
     }
 
+    public void setFrontJack(double s){
+        frontJack.set(s);
+    }
+
     public void moveFrontJack(double jackSpeed){
-        System.out.println(jackSpeed);
-        if (jackSpeed < 0){
-            frontJack.set(Math.cos(Math.toRadians(getJackAngle())) * -.4 + jackSpeed);
-        } else {
-            frontJack.set(jackSpeed);
-        }
+        System.out.println(-.75*Math.cos(Math.toRadians(getJackAngle())) + jackSpeed + " " + getJackAngle());
+        frontJack.set(-.75*Math.cos(Math.toRadians(getJackAngle())) + jackSpeed);
     }
 
     public double getJackAngle(){
+        //return frontJackPot.getVoltage();
         return ((-frontJackPot.getVoltage() + fJZeroDegree) / ((fJZeroDegree - fJFinalDegree) / 90));
     }
 
@@ -53,6 +63,10 @@ public class Jack extends Subsystem {
 
     public void resetJackEncoder(){
         jackEncoder.reset();
+    }
+
+    public boolean getjackTopLimit(){
+        return jackTopLimit.get();
     }
 
     @Override
