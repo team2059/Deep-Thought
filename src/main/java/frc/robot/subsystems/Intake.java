@@ -14,6 +14,8 @@ public class Intake extends Subsystem {
     WPI_VictorSPX wristMotor = new WPI_VictorSPX(RobotMap.wristMotorPort);
     WPI_VictorSPX collectorMotor = new WPI_VictorSPX(RobotMap.collectorMotorPort);
 
+
+    //TODO subtract 6 degrees
     final double armZeroDegree = 1.4160;
     final double armNinetyDegree = 0.1892;
     final double wristZeroDegree = .873;
@@ -61,7 +63,7 @@ public class Intake extends Subsystem {
      * @return the wristAngle
      */
     public double getWristAngle() {
-        return ((-wristPot.getVoltage() + wristZeroDegree) / ((wristZeroDegree - wristMaxDegree) / 50));
+        return ((-wristPot.getVoltage() + wristZeroDegree) / ((wristZeroDegree - wristMaxDegree) / 50) - 6);
     }
 
     @Override

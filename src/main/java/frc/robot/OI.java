@@ -92,11 +92,12 @@ public class OI {
         sideButton5.whileHeld(new FrontJack(.3));
         //sideButton6.whenPressed(new PIDCarriageElevate(RobotMap.carriageStart));
         //sideButton4.whenPressed(new ArmDeploy());
-        sideButton6.whileHeld(new Jack(.3));
-        sideButton4.whileHeld(new Jack(-3));
+        sideButton6.whileHeld(new Jack(.1));
+        sideButton4.whileHeld(new Jack(-.1));
         sideButton1.whileHeld(new JackWheel(.7));
         sideButton2.whileHeld(new JackWheel(-.5));
         sideButton12.whenPressed(new PIDCarriageLower());
+        sideButton8.whileHeld(new holdFrontJack());
 
     }
 }

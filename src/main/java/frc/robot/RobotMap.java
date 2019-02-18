@@ -8,6 +8,8 @@
 package frc.robot;
 
 public class RobotMap {
+    //Cameras
+    public static int Camera1 = 0;
 
     // Drive Train
     public static int leftMotor1 = 3;
@@ -29,10 +31,10 @@ public class RobotMap {
     public static double carriageStart = 11.35091;
 
     // Hall Effect Sensors
-    public static int carriageLimitTop = 7;
-    public static int carriageLimitBottom = 5;
-    public static int elevatorLimitTop = 6;
-    public static int elevatorLimitBottom = 8;
+    public static int carriageLimitTop = 6;
+    public static int carriageLimitBottom = 4;
+    public static int elevatorLimitTop = 5;
+    public static int elevatorLimitBottom = 7;
 
     // Carraige Elevator PID
     public static double carriageElevatorP = .7;
@@ -63,12 +65,6 @@ public class RobotMap {
     public static double wristI = 0;
     public static double wristD = 0;
 
-    /*
-     * Hatch Arm and Collector
-     */
-    public static int hatchArmPot = 3;
-    public static int hatchArmMotor = 4;
-
     // PID
     public static double hatchArmP = 1;
     public static double hatchArmI = 0;
@@ -78,7 +74,10 @@ public class RobotMap {
     public static int jackMotorPort = 9;
     public static int jackWheelPort = 11;
     public static int frontJackPort = 4;
-    public static int frontJackPotPort = 69;
+    public static int frontJackPotPort = 2;
+    public static int jackEncoderPort1 = 9;
+    public static int jackEncoderPort2 = 8;
+    public static int jackTopLimitPort = 12;
 
     //Static Elevator Heights
     public static double hatchLevelOneHeight = 6.5544;

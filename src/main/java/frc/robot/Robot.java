@@ -1,12 +1,7 @@
-/*----------------------------------------------------------------------------*/
-/* Copyright (c) 2017-2018 FIRST. All Rights Reserved.                        */
-/* Open Source Software - may be modified and shared by FRC teams. The code   */
-/* must be accompanied by the FIRST BSD license file in the root directory of */
-/* the project.                                                               */
-/*----------------------------------------------------------------------------*/
-
 package frc.robot;
 
+import edu.wpi.cscore.UsbCamera;
+import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -25,6 +20,7 @@ import frc.robot.commands.CommandBase;
  */
 public class Robot extends TimedRobot {
     public static OI m_oi;
+    private static UsbCamera camera1;
 
     Command m_autonomousCommand;
     SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -37,6 +33,7 @@ public class Robot extends TimedRobot {
     @Override
     public void robotInit() {
         m_oi = new OI();
+        camera1 = CameraServer.getInstance().startAutomaticCapture("Camera 1", RobotMap.Camera1);
         // chooser.addOption("My Auto", new MyAutoCommand());
         SmartDashboard.putData("Auto mode", m_chooser);
         CommandBase.init();
@@ -110,6 +107,7 @@ public class Robot extends TimedRobot {
         CommandBase.elevator.setElevatorEncoder(0);
         CommandBase.driveBase.resetLeftEncoder();
         CommandBase.driveBase.resetRightEncoder();
+        CommandBase.jack.resetJackEncoder();
 
         // This makes sure that the autonomous stops running when
         // teleop starts running. If you want the autonomous to
@@ -137,13 +135,21 @@ public class Robot extends TimedRobot {
         SmartDashboard.putNumber("Elevator Encoder", CommandBase.elevator.getElevatorEncoder());
         SmartDashboard.putNumber("Left Drive Encoder", CommandBase.driveBase.getLeftEncoder());
         SmartDashboard.putNumber("Right Drive Encoder", CommandBase.driveBase.getRightEncoder());
-
+        SmartDashboard.putNumber("Front Jack Pot", CommandBase.jack.getJackAngle());
+        SmartDashboard.putNumber("Jack Encoder", CommandBase.jack.getJackEncoder());
     }
 
     /**
      * This function is called periodically during test mode.
      */
+
+    @Override
+    public void testInit(){
+        System.out.println("Test Mode Enabled");
+    }
+
     @Override
     public void testPeriodic() {
+
     }
 }
