@@ -49,7 +49,7 @@ public class Jack extends Subsystem {
 
     public void moveFrontJack(double jackSpeed){
         System.out.println(-.75*Math.cos(Math.toRadians(getJackAngle())) + jackSpeed + " " + getJackAngle());
-        frontJack.set(-.75*Math.cos(Math.toRadians(getJackAngle())) + jackSpeed);
+        frontJack.set(-.85*Math.cos(Math.toRadians(getJackAngle())) + jackSpeed);
     }
 
     public double getJackAngle(){

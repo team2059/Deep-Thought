@@ -94,10 +94,11 @@ public class OI {
         //sideButton4.whenPressed(new ArmDeploy());
         sideButton6.whileHeld(new Jack(.3));
         sideButton4.whileHeld(new Jack(-.3));
-        sideButton1.whileHeld(new JackWheel(.7));
+        sideButton1.whileHeld(new JackWheel(1));
         sideButton2.whileHeld(new JackWheel(-.5));
         sideButton12.whileHeld(new holdFrontJack());
         sideButton8.whileHeld(new FrontJack(-.75)); //stall
+        sideButton7.whenPressed(new PIDJack(4));
 
     }
 }
