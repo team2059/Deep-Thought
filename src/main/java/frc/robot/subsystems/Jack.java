@@ -2,6 +2,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.AnalogInput;
 import frc.robot.RobotMap;
@@ -21,10 +22,12 @@ public class Jack extends Subsystem {
 
     WPI_VictorSPX frontJack = new WPI_VictorSPX(RobotMap.frontJackPort);
 
+    Relay spike = new Relay(RobotMap.spikePort);
+
     AnalogInput frontJackPot = new AnalogInput(RobotMap.frontJackPotPort);
 
-    final double fJZeroDegree = 2.425;
-    final double fJFinalDegree = .6237;
+    final double fJZeroDegree = 4.206;
+    final double fJFinalDegree = 2.15;
 
     public void moveJack(double motorSpeed) {
         if (getJackEncoder() < 21 && motorSpeed <= 0){
@@ -41,6 +44,14 @@ public class Jack extends Subsystem {
 
     public void moveWheel(double wheelSpeed) {
         jackWheel.set(-wheelSpeed);
+    }
+
+    public void setSpike(boolean state){
+        if(state){
+            spike.set(Relay.Value.kOn);
+        }  else {
+            spike.set(Relay.Value.kOff);
+        }
     }
 
     public void setFrontJack(double s){

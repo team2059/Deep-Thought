@@ -4,8 +4,12 @@ import edu.wpi.first.wpilibj.command.PIDCommand;
 import frc.robot.RobotMap;
 import frc.robot.commands.CommandBase;
 
+import javax.sound.midi.SysexMessage;
+
 
 public class PIDJack extends PIDCommand {
+
+    private double x = 6;
 
     public PIDJack(double inches) {
         super(RobotMap.mainElevatorP, RobotMap.mainElevatorI, RobotMap.mainElevatorD);
@@ -14,7 +18,7 @@ public class PIDJack extends PIDCommand {
 
     @Override
     protected void initialize() {
-        setTimeout(6);
+        setTimeout(12);
     }
 
     @Override
@@ -35,6 +39,11 @@ public class PIDJack extends PIDCommand {
     }
 
     @Override
+    protected void execute(){
+        setSetpoint(calculateOffset());
+    }
+
+    @Override
     protected double returnPIDInput() {
         return CommandBase.jack.getJackEncoder();
     }
@@ -43,5 +52,9 @@ public class PIDJack extends PIDCommand {
     protected void usePIDOutput(double output) {
         System.out.println(output);
         CommandBase.jack.moveJack(-output);
+    }
+
+    private double calculateOffset() {
+        return (x - CommandBase.elevator.getCarriageEncoder() + 2.08);
     }
 }

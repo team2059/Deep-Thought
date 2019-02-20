@@ -11,19 +11,18 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import edu.wpi.first.wpilibj.Joystick;
 
+import frc.robot.commands.Auto.*;
 import frc.robot.commands.Elevator.CarriageElevate;
 import frc.robot.commands.Elevator.PIDCarriageLower;
 import frc.robot.commands.Elevator.Elevate;
 import frc.robot.commands.Elevator.PIDElevate;
 import frc.robot.commands.Elevator.PIDCarriageElevate;
-import frc.robot.commands.Auto.HatchPickup;
 import frc.robot.commands.Arm.Arm;
 import frc.robot.commands.Arm.ArmDeploy;
 import frc.robot.commands.Arm.Collector;
 import frc.robot.commands.Arm.Wrist;
 import frc.robot.commands.Arm.PIDWrist;
 import frc.robot.commands.Jack.*;
-import frc.robot.commands.Auto.HatchSetLevel;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -33,6 +32,7 @@ public class OI {
 
     private static Joystick driveJoystick = new Joystick(0);
     private static Joystick sideJoystick = new Joystick(1);
+    private static Joystick buttonBox = new Joystick(2);
 
     JoystickButton driveButton7 = new JoystickButton(driveJoystick, 7);
     JoystickButton driveButton8 = new JoystickButton(driveJoystick, 8);
@@ -43,7 +43,7 @@ public class OI {
     JoystickButton driveButton5 = new JoystickButton(driveJoystick, 5);
     JoystickButton driveButton6 = new JoystickButton(driveJoystick, 6);
     JoystickButton driveButton4 = new JoystickButton(driveJoystick, 4);
-    JoystickButton driveButton3 = new JoystickButton(driveJoystick, 3);
+    JoystickButton driveButton2 = new JoystickButton(driveJoystick, 2);
     JoystickButton driveButton1 = new JoystickButton(driveJoystick, 1);
 
     JoystickButton sideButton5 = new JoystickButton(sideJoystick, 5);
@@ -55,6 +55,16 @@ public class OI {
     JoystickButton sideButton12 = new JoystickButton(sideJoystick, 12);
     JoystickButton sideButton1 = new JoystickButton(sideJoystick, 1);
     JoystickButton sideButton2 = new JoystickButton(sideJoystick, 2);
+
+    JoystickButton boxButton1 = new JoystickButton(buttonBox, 1);
+    JoystickButton boxButton2 = new JoystickButton(buttonBox, 2);
+    JoystickButton boxButton3 = new JoystickButton(buttonBox, 3);
+    JoystickButton boxButton4 = new JoystickButton(buttonBox, 4);
+    JoystickButton boxButton5 = new JoystickButton(buttonBox, 5);
+    JoystickButton boxButton6 = new JoystickButton(buttonBox, 6);
+    JoystickButton boxButton7 = new JoystickButton(buttonBox, 7);
+    JoystickButton boxButton8 = new JoystickButton(buttonBox, 8);
+
 
     // JoystickButton[] driveButtons = new JoystickButton[14];
     // JoystickButton[] sideButtons = new JoystickButton[13];
@@ -80,10 +90,10 @@ public class OI {
         driveButton10.whileHeld(new CarriageElevate(.3));
         driveButton11.whileHeld(new Arm(-.2));
         driveButton12.whileHeld(new Arm(.3));
-        driveButton4.whileHeld(new Wrist(.4));
+        driveButton4.whileHeld(new Wrist(.7));
         driveButton6.whileHeld(new Wrist(-.2));
         driveButton1.whileHeld(new Collector(.5));
-        driveButton3.whileHeld(new Collector(-.5));
+        driveButton2.whileHeld(new Collector(-1));
         // driveButton5.whileHeld(new PIDWrist(45));
         // driveButton3.whileHeld(new PIDWrist(-25));
         // 8.7 carriage collector
@@ -95,10 +105,19 @@ public class OI {
         sideButton6.whileHeld(new Jack(.3));
         sideButton4.whileHeld(new Jack(-.3));
         sideButton1.whileHeld(new JackWheel(1));
-        sideButton2.whileHeld(new JackWheel(-.5));
+        sideButton2.whileHeld(new JackWheel(-1));
         sideButton12.whileHeld(new holdFrontJack());
         sideButton8.whileHeld(new FrontJack(-.75)); //stall
         sideButton7.whenPressed(new PIDJack(4));
+
+        boxButton1.whenPressed(new CargoSetLevel(1));
+        boxButton2.whenPressed(new CargoSetLevel(2));
+        boxButton3.whenPressed(new CargoSetLevel(3));
+        boxButton4.whenPressed(new HatchSetLevel(1));
+        boxButton5.whenPressed(new HatchSetLevel(2));
+        boxButton6.whenPressed(new HatchSetLevel(3));
+        boxButton7.whenPressed(new TestReset());
+        boxButton8.whenPressed(new CargoPickup());
 
     }
 }

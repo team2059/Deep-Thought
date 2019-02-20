@@ -1,12 +1,13 @@
-package frc.robot.commands.Auto;
+package frc.robot.commands.Jack;
 
 import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.commands.CommandBase;
 
 
-public class AutoClimb extends Command {
-    public AutoClimb() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+public class SpikeControl extends Command {
+    boolean state;
+    public SpikeControl(boolean s) {
+        state = s;
     }
 
 
@@ -26,7 +27,7 @@ public class AutoClimb extends Command {
      */
     @Override
     protected void execute() {
-
+        CommandBase.jack.setSpike(state);
     }
 
 
@@ -62,7 +63,7 @@ public class AutoClimb extends Command {
      */
     @Override
     protected void end() {
-
+        CommandBase.jack.setSpike(!state);
     }
 
 
@@ -82,6 +83,7 @@ public class AutoClimb extends Command {
      */
     @Override
     protected void interrupted() {
+        end();
         super.interrupted();
     }
 }
