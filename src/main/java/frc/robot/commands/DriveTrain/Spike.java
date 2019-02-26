@@ -2,11 +2,14 @@ package frc.robot.commands.DriveTrain;
 
 import edu.wpi.first.wpilibj.command.Command;
 
+import static frc.robot.commands.CommandBase.driveBase;
 
 public class Spike extends Command {
-    public Spike() {
+    boolean state;
+    public Spike(boolean s) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+        state = s;
     }
 
 
@@ -16,7 +19,7 @@ public class Spike extends Command {
      */
     @Override
     protected void initialize() {
-
+        driveBase.setSpike(state);
     }
 
 
@@ -50,7 +53,7 @@ public class Spike extends Command {
     @Override
     protected boolean isFinished() {
         // TODO: Make this return true when this Command no longer needs to run execute()
-        return false;
+        return true;
     }
 
 
@@ -83,5 +86,6 @@ public class Spike extends Command {
     @Override
     protected void interrupted() {
         super.interrupted();
+        end();
     }
 }

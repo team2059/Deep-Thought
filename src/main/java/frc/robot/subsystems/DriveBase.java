@@ -1,6 +1,6 @@
 package frc.robot.subsystems;
 
-import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
+import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.Encoder;
@@ -18,6 +18,7 @@ public class DriveBase extends HHSensorDrive {
   WPI_TalonSRX leftMotor2 = new WPI_TalonSRX(RobotMap.leftMotor2);
   WPI_TalonSRX rightMotor1 = new WPI_TalonSRX(RobotMap.rightMotor1);
   WPI_TalonSRX rightMotor2 = new WPI_TalonSRX(RobotMap.rightMotor2);
+  Relay spike = new Relay(RobotMap.spike);
 
   Encoder leftEncoder = new Encoder(RobotMap.leftEncoder1, RobotMap.leftEncoder2);
   Encoder rightEncoder = new Encoder(RobotMap.rightEncoder1, RobotMap.rightEncoder2);
@@ -35,6 +36,15 @@ public class DriveBase extends HHSensorDrive {
     leftMotor2.setSafetyEnabled(false);
     rightMotor1.setSafetyEnabled(false);
     rightMotor2.setSafetyEnabled(false);
+  }
+
+  public void setSpike(boolean state) {
+    if (state) {
+      spike.set(Relay.Value.kOn);
+    }
+    else{
+      spike.set(Relay.Value.kOff);
+    }
   }
 
   @Override

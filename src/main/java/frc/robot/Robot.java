@@ -7,27 +7,20 @@
 
 package frc.robot;
 
-import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.CommandBase;
-import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.Auto.DriveStraight;
-import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import java.awt.List;
 import java.util.ArrayList;
-
-import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 
 /**
@@ -38,7 +31,6 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
  * project.
  */
 public class Robot extends TimedRobot {
-  public static ExampleSubsystem m_subsystem = new ExampleSubsystem();
   public static OI m_oi;
 
   static final String PI_ADDRESS = "10.20.59.6";
@@ -59,9 +51,6 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     m_oi = new OI();
-    m_chooser.setDefaultOption("Example Auto", new ExampleCommand());
-    m_chooser.addObject("Line Auto", new DriveStraight());
-    SmartDashboard.putData("Auto mode", m_chooser);
     CommandBase.init();
     NetworkTableInstance.getDefault()
       .getEntry("/CameraPublisher/PiCamera/streams")
@@ -83,10 +72,12 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotPeriodic() {
+    SmartDashboard.putNumber("Arm Pot", CommandBase.arm.getArmAngle());
     if(velocityCount == 2) {
       CommandBase.driveBase.update();
       velocityCount = 0;
     }
+
     velocityCount++;
   }
 

@@ -7,18 +7,32 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.RobotMap;
+import frc.robot.commands.MoveArm;
 
 /**
  * An example subsystem.  You can replace me with your own Subsystem.
  */
-public class ExampleSubsystem extends Subsystem {
-  // Put methods for controlling this subsystem
-  // here. Call these from Commands.
+public class Arm extends Subsystem {
+  WPI_TalonSRX armMotor = new WPI_TalonSRX(RobotMap.armMotor);
+  AnalogInput armPot = new AnalogInput(RobotMap.armPotPort);
+
+  final double armZeroDegree = 2.90;
+  final double armNinetyDegree = 1.67;
 
   @Override
   public void initDefaultCommand() {
-    // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
+  }
+
+  public void moveArm(double speed) {
+    armMotor.set(.05*Math.cos(Math.toRadians(getArmAngle())) + (0.3*speed));
+  }
+
+  public double getArmAngle() {
+//    return armPot.getVoltage();
+    return -6 +((-armPot.getVoltage() + armZeroDegree) / ((armZeroDegree - armNinetyDegree) / 90));
   }
 }

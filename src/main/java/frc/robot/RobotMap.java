@@ -31,4 +31,10 @@ public class RobotMap {
   public static int leftEncoder2 = 2;
   public static int rightEncoder1 = 3;
   public static int rightEncoder2 = 4;
+
+  // Arm
+  public static int armMotor = 5;
+  public static int armPotPort = 3;
+
+  public static int spike =  0;
 }
