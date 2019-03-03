@@ -36,6 +36,14 @@ public class DriveBase extends HHSensorDrive {
     leftMotor2.setSafetyEnabled(false);
     rightMotor1.setSafetyEnabled(false);
     rightMotor2.setSafetyEnabled(false);
+    setySensitivity(0.6);
+    setzSensitivity(1.0);
+    setxLowSpeed(0.6);
+    setyLowSpeed(0.7);
+    setzLowSpeed(0.7);
+    setxHighSpeed(1.0);
+    setyHighSpeed(1.0);
+    setzHighSpeed(0.8);
   }
 
   public void setSpike(boolean state) {
