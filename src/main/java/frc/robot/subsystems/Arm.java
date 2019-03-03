@@ -20,7 +20,7 @@ public class Arm extends Subsystem {
   WPI_TalonSRX armMotor = new WPI_TalonSRX(RobotMap.armMotor);
   AnalogInput armPot = new AnalogInput(RobotMap.armPotPort);
 
-  final double armZeroDegree = 2.90;
+  final double armZeroDegree = 2.9;
   final double armNinetyDegree = 1.67;
 
   @Override
@@ -28,11 +28,11 @@ public class Arm extends Subsystem {
   }
 
   public void moveArm(double speed) {
-    armMotor.set(.05*Math.cos(Math.toRadians(getArmAngle())) + (0.3*speed));
+    armMotor.set(.08*Math.cos(Math.toRadians(getArmAngle())) + (0.3*speed));
   }
 
   public double getArmAngle() {
 //    return armPot.getVoltage();
-    return -6 +((-armPot.getVoltage() + armZeroDegree) / ((armZeroDegree - armNinetyDegree) / 90));
+    return -21 +((-armPot.getVoltage() + armZeroDegree) / ((armZeroDegree - armNinetyDegree) / 90));
   }
 }

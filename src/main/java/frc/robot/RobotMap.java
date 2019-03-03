@@ -37,4 +37,9 @@ public class RobotMap {
   public static int armPotPort = 3;
 
   public static int spike =  0;
+
+  public static double armP = 0.35;
+  public static double armI = 0;
+  public static double armD = 0.08;
+
 }

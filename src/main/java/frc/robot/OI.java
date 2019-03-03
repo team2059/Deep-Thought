@@ -14,6 +14,7 @@ import frc.robot.commands.Auto.*;
 import frc.robot.commands.DriveTrain.LineFollow;
 import frc.robot.commands.DriveTrain.Spike;
 import frc.robot.commands.MoveArm;
+import frc.robot.commands.PIDArm;
 
 
 /**
@@ -28,7 +29,9 @@ public class OI {
   JoystickButton button6 = new JoystickButton(driveJoystick, 6);
   JoystickButton button7 = new JoystickButton(driveJoystick, 7);
 
-  JoystickButton button1 = new JoystickButton(secondJoystick, 1);
+  JoystickButton secondButton1 = new JoystickButton(secondJoystick, 1);
+  JoystickButton secondButton4 = new JoystickButton(secondJoystick, 4);
+  JoystickButton secondButton5 = new JoystickButton(secondJoystick, 5);
 
   public static Joystick getDriveJoystick() {
 		return driveJoystick;
@@ -37,11 +40,14 @@ public class OI {
   public static Joystick getSecondJoystick() {
       return  secondJoystick;
   }
-  
+
   public OI() {
     button5.whenPressed(new LineFollow(20));
     button6.whenPressed(new Spike(false));
     button7.whenPressed(new Spike(true));
-    button1.whileHeld(new MoveArm());
+    secondButton1.whileHeld(new MoveArm());
+
+    secondButton4.whenPressed(new PIDArm(45));
+    secondButton5.whenPressed(new PIDArm(0));
   }
 }
