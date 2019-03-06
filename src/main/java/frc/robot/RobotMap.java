@@ -56,9 +56,9 @@ public class RobotMap {
     public static int collectorMotorPort = 7;
 
     // Arm PID
-    public static double armP = 1;
+    public static double armP = 0.35;
     public static double armI = 0;
-    public static double armD = 0;
+    public static double armD = 0.08;
 
     // Wrist PID
     public static double wristP = .2;

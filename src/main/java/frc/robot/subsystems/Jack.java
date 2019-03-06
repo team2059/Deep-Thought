@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.AnalogInput;
 import frc.robot.RobotMap;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
-import hhCore.sensors.ElevatorEncoder;
+import frc.robot.commands.Jack.JackWheel;
 
 public class Jack extends Subsystem {
 
@@ -81,6 +81,8 @@ public class Jack extends Subsystem {
     }
 
     @Override
-    protected void initDefaultCommand() {}
+    protected void initDefaultCommand() {
+        setDefaultCommand(new JackWheel());
+    }
 
 }

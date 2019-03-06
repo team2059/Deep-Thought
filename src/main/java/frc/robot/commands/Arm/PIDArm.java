@@ -10,11 +10,11 @@ public class PIDArm extends PIDCommand {
     public PIDArm(double angle) {
         super(RobotMap.armP, RobotMap.armI, RobotMap.armD);
 
-        setTimeout(3000);
         setSetpoint(angle);
     }
 
     protected void initialize() {
+        setTimeout(4);
     }
 
     @Override

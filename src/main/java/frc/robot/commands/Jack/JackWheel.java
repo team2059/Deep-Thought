@@ -1,21 +1,20 @@
 package frc.robot.commands.Jack;
 
 import frc.robot.commands.CommandBase;
+import frc.robot.OI;
 
 public class JackWheel extends CommandBase {
 
-    double wheelSpeed;
-    public JackWheel(double jS) {
-        wheelSpeed = jS;
+    public JackWheel() {
+      requires(jack);
     }
 
     @Override
-    protected void initialize() {
-    }
+    protected void initialize() {  }
 
     @Override
     protected void execute() {
-        jack.moveWheel(wheelSpeed);
+        jack.moveWheel(OI.getSideJoystick().getY());
     }
 
     @Override
