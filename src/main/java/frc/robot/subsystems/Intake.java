@@ -16,10 +16,10 @@ public class Intake extends Subsystem {
 
 
     //TODO subtract 6 degrees
-    final double armZeroDegree = 1.4160;
-    final double armNinetyDegree = 0.1892;
-    final double wristZeroDegree = .873;
-    final double wristMaxDegree = 1.58;
+    final double armZeroDegree = 4.6969;
+    final double armNinetyDegree = 3.338;
+    final double wristZeroDegree = 1.13;
+    final double wristMaxDegree = 1.795;
 
     AnalogInput armPot = new AnalogInput(RobotMap.armPotPort);
     AnalogInput wristPot = new AnalogInput(RobotMap.wristPotPort);
@@ -41,8 +41,8 @@ public class Intake extends Subsystem {
     }
 
     public void moveWrist(double s) {
-        if ((s > 0 && getWristAngle() >= -25) || (s < 0 && getWristAngle() <= 45)) { //Padded Limits by 5 for "safety"
-            wristMotor.set(s);
+        if ((s < 0 && getWristAngle() >= -25) || (s > 0 && getWristAngle() <= 45)) { //Padded Limits by 5 for "safety"
+            wristMotor.set(-s);
         } else {
             wristMotor.set(0);
         }
@@ -63,7 +63,7 @@ public class Intake extends Subsystem {
      * @return the wristAngle
      */
     public double getWristAngle() {
-        return ((-wristPot.getVoltage() + wristZeroDegree) / ((wristZeroDegree - wristMaxDegree) / 50) - 6);
+        return ((-wristPot.getVoltage() + wristZeroDegree) / ((wristZeroDegree - wristMaxDegree) / 50));
     }
 
     @Override

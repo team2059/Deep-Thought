@@ -5,16 +5,14 @@ import frc.robot.OI;
 
 public class JackWheel extends CommandBase {
 
-    public JackWheel() {
-      requires(jack);
-    }
+    public JackWheel() {  }
 
     @Override
     protected void initialize() {  }
 
     @Override
     protected void execute() {
-        jack.moveWheel(OI.getSideJoystick().getY());
+        jack.moveWheel(OI.getDriveJoystick().getY());
     }
 
     @Override

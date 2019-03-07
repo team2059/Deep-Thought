@@ -43,7 +43,7 @@ public class Jack extends Subsystem {
     }
 
     public void moveWheel(double wheelSpeed) {
-        jackWheel.set(-wheelSpeed);
+        jackWheel.set(wheelSpeed);
     }
 
     public void setSpike(boolean state){
@@ -81,8 +81,6 @@ public class Jack extends Subsystem {
     }
 
     @Override
-    protected void initDefaultCommand() {
-        setDefaultCommand(new JackWheel());
-    }
+    protected void initDefaultCommand() {  }
 
 }

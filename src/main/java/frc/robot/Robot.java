@@ -49,6 +49,20 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void robotPeriodic() {
+        SmartDashboard.putNumber("Arm Pot", CommandBase.intake.getArmAngle());
+        //System.out.println("Arm Pot: " + CommandBase.intake.getArmAngle());
+        SmartDashboard.putNumber("Wrist Pot", CommandBase.intake.getWristAngle());
+        SmartDashboard.putBoolean("Carriage Top", CommandBase.elevator.getCarriageLimitTop());
+        SmartDashboard.putBoolean("Carriage Bottom", CommandBase.elevator.getCarriageLimitBottom());
+        SmartDashboard.putBoolean("Elevator Top", CommandBase.elevator.getElevatorLimitTop());
+        SmartDashboard.putBoolean("Elevator Bottom", CommandBase.elevator.getElevatorLimitBottom());
+        SmartDashboard.putNumber("Carriage Encoder", CommandBase.elevator.getCarriageEncoder());
+        SmartDashboard.putNumber("Elevator Encoder", CommandBase.elevator.getElevatorEncoder());
+        SmartDashboard.putNumber("Left Drive Encoder", CommandBase.driveBase.getLeftEncoder());
+        SmartDashboard.putNumber("Right Drive Encoder", CommandBase.driveBase.getRightEncoder());
+        SmartDashboard.putNumber("Front Jack Pot", CommandBase.jack.getJackAngle());
+        SmartDashboard.putNumber("Jack Encoder", CommandBase.jack.getJackEncoder());
+        SmartDashboard.putBoolean("Jack Top Limit", CommandBase.jack.getjackTopLimit());
     }
 
     /**
@@ -124,20 +138,6 @@ public class Robot extends TimedRobot {
     @Override
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-        SmartDashboard.putNumber("Arm Pot", CommandBase.intake.getArmAngle());
-        //System.out.println("Arm Pot: " + CommandBase.intake.getArmAngle());
-        SmartDashboard.putNumber("Wrist Pot", CommandBase.intake.getWristAngle());
-        SmartDashboard.putBoolean("Carriage Top", CommandBase.elevator.getCarriageLimitTop());
-        SmartDashboard.putBoolean("Carriage Bottom", CommandBase.elevator.getCarriageLimitBottom());
-        SmartDashboard.putBoolean("Elevator Top", CommandBase.elevator.getElevatorLimitTop());
-        SmartDashboard.putBoolean("Elevator Bottom", CommandBase.elevator.getElevatorLimitBottom());
-        SmartDashboard.putNumber("Carriage Encoder", CommandBase.elevator.getCarriageEncoder());
-        SmartDashboard.putNumber("Elevator Encoder", CommandBase.elevator.getElevatorEncoder());
-        SmartDashboard.putNumber("Left Drive Encoder", CommandBase.driveBase.getLeftEncoder());
-        SmartDashboard.putNumber("Right Drive Encoder", CommandBase.driveBase.getRightEncoder());
-        SmartDashboard.putNumber("Front Jack Pot", CommandBase.jack.getJackAngle());
-        SmartDashboard.putNumber("Jack Encoder", CommandBase.jack.getJackEncoder());
-        SmartDashboard.putBoolean("Jack Top Limit", CommandBase.jack.getjackTopLimit());
     }
 
     /**

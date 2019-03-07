@@ -4,9 +4,6 @@ import edu.wpi.first.wpilibj.command.PIDCommand;
 import frc.robot.RobotMap;
 import frc.robot.commands.CommandBase;
 
-import javax.sound.midi.SysexMessage;
-
-
 public class PIDJack extends PIDCommand {
 
     private double x = 6;

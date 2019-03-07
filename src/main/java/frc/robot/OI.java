@@ -84,16 +84,17 @@ public class OI {
     }
 
     public OI() {
-        driveButton7.whileHeld(new Elevate(1));
+        driveButton7.whileHeld(new Elevate(.3));
         driveButton8.whileHeld(new Elevate(-.3));
         driveButton9.whileHeld(new CarriageElevate(-.3));
         driveButton10.whileHeld(new CarriageElevate(.3));
-        driveButton11.whileHeld(new Arm(-.2));
-        driveButton12.whileHeld(new Arm(.3));
-        driveButton4.whileHeld(new Wrist(.7));
-        driveButton6.whileHeld(new Wrist(-.2));
-        driveButton1.whileHeld(new Collector(.5));
-        driveButton2.whileHeld(new Collector(-1));
+        driveButton11.whileHeld(new Arm(-.1));
+        driveButton12.whileHeld(new Arm(.1));
+        driveButton4.whileHeld(new Wrist(.6));
+        driveButton6.whileHeld(new Wrist(-.1));
+        // driveButton1.whileHeld(new Collector(.5));
+        driveButton2.whenPressed(new PIDJack(8));
+        driveButton1.whileHeld(new JackWheel());
         // driveButton5.whileHeld(new PIDWrist(45));
         // driveButton3.whileHeld(new PIDWrist(-25));
         // 8.7 carriage collector
@@ -104,8 +105,6 @@ public class OI {
         //sideButton4.whenPressed(new ArmDeploy());
         sideButton6.whileHeld(new Jack(.3));
         sideButton4.whileHeld(new Jack(-.3));
-        sideButton1.whileHeld(new JackWheel(1));
-        sideButton2.whileHeld(new JackWheel(-1));
         sideButton12.whileHeld(new holdFrontJack());
         sideButton8.whileHeld(new FrontJack(-.75)); //stall
         sideButton7.whenPressed(new PIDJack(4));
