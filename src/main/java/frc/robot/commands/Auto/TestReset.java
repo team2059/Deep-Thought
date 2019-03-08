@@ -9,6 +9,6 @@ public class TestReset extends CommandGroup {
 
     public TestReset() {
         addParallel(new PIDElevate(0));
-        addSequential(new PIDCarriageElevate(11.35091));
+        addSequential(new PIDCarriageElevate(6.8844));
     }
 }

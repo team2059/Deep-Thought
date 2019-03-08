@@ -10,10 +10,10 @@ public class HatchSetLevel extends CommandGroup{
         System.out.println(level);
         if (level == 1){
             addParallel(new PIDElevate(0));
-            addSequential(new PIDCarriageElevate(6.5544));
+            addSequential(new PIDCarriageElevate(8.5544));
         } else if (level == 2){
             addParallel(new PIDElevate(20));
-            addSequential(new PIDCarriageElevate(14.5544));
+            addSequential(new PIDCarriageElevate(18.5544));
         } else if (level == 3){
             addParallel(new PIDElevate(32));
             addSequential(new PIDCarriageElevate(28.5));

@@ -92,10 +92,10 @@ public class OI {
         driveButton12.whileHeld(new Arm(.1));
         driveButton4.whenPressed(new PIDWrist(15));
         driveButton6.whenPressed(new PIDWrist(40));
-        // driveButton1.whileHeld(new Collector(.5));
-        //driveButton2.whenPressed(new PIDJack(8));
-        driveButton1.whileHeld(new JackWheel());
-        // driveButton5.whileHeld(new PIDWrist(45));
+        driveButton1.whileHeld(new Collector(.5));
+        driveButton2.whileHeld(new Collector(-.5));
+        //driveButton1.whileHeld(new JackWheel());
+        driveButton5.whileHeld(new JackWheel());
         // driveButton3.whileHeld(new PIDWrist(-25));
         // 8.7 carriage collector
 
