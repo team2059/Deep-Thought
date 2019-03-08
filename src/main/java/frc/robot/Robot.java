@@ -21,6 +21,7 @@ import frc.robot.commands.CommandBase;
 public class Robot extends TimedRobot {
     public static OI m_oi;
     private static UsbCamera camera1;
+    private static boolean isTeleopInit = false;
 
     Command m_autonomousCommand;
     SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -92,7 +93,9 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void autonomousInit() {
-        m_autonomousCommand = m_chooser.getSelected();
+        teleopInit();
+        isTeleopInit = true;
+        // m_autonomousCommand = m_chooser.getSelected();
 
         /*
          * String autoSelected = SmartDashboard.getString("Auto Selector",
@@ -102,9 +105,9 @@ public class Robot extends TimedRobot {
          */
 
         // schedule the autonomous command (example)
-        if (m_autonomousCommand != null) {
-            m_autonomousCommand.start();
-        }
+        // if (m_autonomousCommand != null) {
+        //     m_autonomousCommand.start();
+        // }
     }
 
     /**
@@ -112,16 +115,18 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void autonomousPeriodic() {
-        Scheduler.getInstance().run();
+        teleopPeriodic();
     }
 
     @Override
     public void teleopInit() {
-        CommandBase.elevator.setCarrigeEncoder(RobotMap.carriageStart);
-        CommandBase.elevator.setElevatorEncoder(0);
-        CommandBase.driveBase.resetLeftEncoder();
-        CommandBase.driveBase.resetRightEncoder();
-        CommandBase.jack.resetJackEncoder();
+        if(!isTeleopInit) {
+          CommandBase.elevator.setCarrigeEncoder(RobotMap.carriageStart);
+          CommandBase.elevator.setElevatorEncoder(0);
+          CommandBase.driveBase.resetLeftEncoder();
+          CommandBase.driveBase.resetRightEncoder();
+          CommandBase.jack.resetJackEncoder();
+        }
 
         // This makes sure that the autonomous stops running when
         // teleop starts running. If you want the autonomous to

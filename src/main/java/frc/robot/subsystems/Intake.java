@@ -30,11 +30,8 @@ public class Intake extends Subsystem {
     double maxWristAngle;
 
     public void moveArm(double s) {
-        double boost = Math.min(Math.abs(s / 2), .5);
-        double cos = Math.cos(Math.toRadians(getArmAngle())) * boost;
-
         if ((s < 0 && getArmAngle() >= -15) || (s > 0 && getArmAngle() <= 85)) { //Padded Limits by 5 for "safety"
-            armMotor.set(-.08*Math.cos(Math.toRadians(getArmAngle())) - (0.8*s));
+            armMotor.set(-.08*Math.cos(Math.toRadians(getArmAngle())) + (0.3*s));
         } else {
             armMotor.set(0);
         }
