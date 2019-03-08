@@ -9,13 +9,12 @@ public class PIDWrist extends PIDCommand {
 
     public PIDWrist(double angle) {
         super(RobotMap.wristP, RobotMap.wristI, RobotMap.wristD);
-
-        setTimeout(3);
         setInputRange(-30, 50);
         setSetpoint(angle);
     }
 
     protected void initialize() {
+        setTimeout(4);
     }
 
     @Override
@@ -34,6 +33,7 @@ public class PIDWrist extends PIDCommand {
     }
 
     protected void end() {
+        System.out.println("ENDED");
         setTimeout(0);
     }
 

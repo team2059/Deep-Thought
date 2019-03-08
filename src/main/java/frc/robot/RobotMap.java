@@ -61,9 +61,9 @@ public class RobotMap {
     public static double armD = 0.08;
 
     // Wrist PID
-    public static double wristP = .2;
+    public static double wristP = .14;
     public static double wristI = 0;
-    public static double wristD = 0;
+    public static double wristD = 0.04;
 
     // PID
     public static double hatchArmP = 1;

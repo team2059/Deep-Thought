@@ -34,7 +34,7 @@ public class Intake extends Subsystem {
         double cos = Math.cos(Math.toRadians(getArmAngle())) * boost;
 
         if ((s < 0 && getArmAngle() >= -15) || (s > 0 && getArmAngle() <= 85)) { //Padded Limits by 5 for "safety"
-            armMotor.set(s + cos);
+            armMotor.set(-.08*Math.cos(Math.toRadians(getArmAngle())) - (0.8*s));
         } else {
             armMotor.set(0);
         }
@@ -42,7 +42,7 @@ public class Intake extends Subsystem {
 
     public void moveWrist(double s) {
         if ((s < 0 && getWristAngle() >= -25) || (s > 0 && getWristAngle() <= 45)) { //Padded Limits by 5 for "safety"
-            wristMotor.set(-s);
+            wristMotor.set(-.5*Math.cos(Math.toRadians(getWristAngle())) - (0.25*s));
         } else {
             wristMotor.set(0);
         }

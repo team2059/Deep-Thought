@@ -6,6 +6,7 @@ public class Jack extends CommandBase {
 
     double motorSpeed;
     public Jack(double mS) {
+        requires(CommandBase.jack);
         motorSpeed = mS;
     }
 
