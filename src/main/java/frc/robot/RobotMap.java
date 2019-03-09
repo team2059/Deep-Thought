@@ -43,7 +43,7 @@ public class RobotMap {
 
     // Main Elevator PID
     public static double mainElevatorP = .7;
-    public static double mainElevatorI = 0;
+    public static double mainElevatorI = 4;
     public static double mainElevatorD = .02;
 
     /*
@@ -54,6 +54,9 @@ public class RobotMap {
     public static int armPotPort = 1;
     public static int wristPotPort = 0;
     public static int collectorMotorPort = 7;
+
+    // Arm Limit
+    public static int armLimitPort = 22;
 
     // Arm PID
     public static double armP = 0.35;

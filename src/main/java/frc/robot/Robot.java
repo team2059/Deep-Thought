@@ -64,6 +64,7 @@ public class Robot extends TimedRobot {
         SmartDashboard.putNumber("Front Jack Pot", CommandBase.jack.getJackAngle());
         SmartDashboard.putNumber("Jack Encoder", CommandBase.jack.getJackEncoder());
         SmartDashboard.putBoolean("Jack Top Limit", CommandBase.jack.getjackTopLimit());
+        SmartDashboard.putBoolean("Arm Limit", CommandBase.intake.getArmLimit());
     }
 
     /**

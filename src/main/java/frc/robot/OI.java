@@ -91,7 +91,7 @@ public class OI {
         driveButton11.whileHeld(new Arm(-.1));
         driveButton12.whileHeld(new Arm(.1));
         driveButton4.whenPressed(new PIDWrist(15));
-        driveButton6.whenPressed(new PIDWrist(40));
+        driveButton6.whenPressed(new PIDWrist(41));
         driveButton1.whileHeld(new Collector(.5));
         driveButton2.whileHeld(new Collector(-.5));
         //driveButton1.whileHeld(new JackWheel());
@@ -105,9 +105,9 @@ public class OI {
         sideButton4.whenPressed(new AutoClimb(3));
         //sideButton6.whileHeld(new Jack(.3));
         //sideButton4.whileHeld(new Jack(-.3));
-        sideButton12.whileHeld(new holdFrontJack());
-        sideButton8.whileHeld(new FrontJack(-.75)); //stall
-        //sideButton7.whenPressed(new PIDJack(4));
+        sideButton12.whileHeld(new Arm(.7));
+        sideButton8.whileHeld(new Arm(-.7));
+        //sideButton7.whenPressed(new PIDJack(5));
         //sideButton2.whenPressed(new PIDJack(0));
 
         boxButton1.whenPressed(new CargoSetLevel(1));
