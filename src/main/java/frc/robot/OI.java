@@ -91,12 +91,12 @@ public class OI {
         driveButton10.whileHeld(new CarriageElevate(.3));
         driveButton11.whileHeld(new Arm(-.1));
         driveButton12.whileHeld(new Arm(.1));
-        driveButton4.whenPressed(new PIDWrist(15));
-        driveButton6.whenPressed(new PIDWrist(41));
+        // driveButton4.whenPressed(new PIDWrist(15));
+        // driveButton6.whenPressed(new PIDWrist(41));
         driveButton1.whileHeld(new Collector(.5));
         driveButton2.whileHeld(new Collector(-.5));
-        //driveButton1.whileHeld(new JackWheel());
-        driveButton5.whileHeld(new JackWheel());
+        driveButton6.whileHeld(new JackWheel());
+        // driveButton5.whileHeld(new JackWheel());
         // driveButton3.whileHeld(new PIDWrist(-25));
         // 8.7 carriage collector
 
@@ -121,7 +121,7 @@ public class OI {
         boxButton4.whenPressed(new HatchSetLevel(1));
         boxButton5.whenPressed(new HatchSetLevel(2));
         boxButton6.whenPressed(new HatchSetLevel(3));
-        boxButton7.whenPressed(new TestReset());
+        boxButton7.whenPressed(new HatchPickup());
         boxButton8.whenPressed(new CargoPickup());
 
     }

@@ -34,8 +34,8 @@ public class Robot extends TimedRobot {
     @Override
     public void robotInit() {
         CommandBase.init();
-        m_oi = new OI();
         camera1 = CameraServer.getInstance().startAutomaticCapture("Camera 1", RobotMap.Camera1);
+        m_oi = new OI();
         // chooser.addOption("My Auto", new MyAutoCommand());
         SmartDashboard.putData("Auto mode", m_chooser);
     }
