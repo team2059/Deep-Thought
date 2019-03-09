@@ -18,6 +18,7 @@ import frc.robot.commands.Elevator.Elevate;
 import frc.robot.commands.Elevator.PIDElevate;
 import frc.robot.commands.Elevator.PIDCarriageElevate;
 import frc.robot.commands.Arm.Arm;
+import frc.robot.commands.Arm.PIDArm;
 import frc.robot.commands.Arm.ArmDeploy;
 import frc.robot.commands.Arm.Collector;
 import frc.robot.commands.Arm.Wrist;
@@ -99,14 +100,18 @@ public class OI {
         // driveButton3.whileHeld(new PIDWrist(-25));
         // 8.7 carriage collector
 
-        sideButton3.whileHeld(new Jack(-.3));
-        sideButton5.whileHeld(new Jack(.3));
+        sideButton1.whileHeld(new Jack(-.3));
+        sideButton2.whileHeld(new Jack(.3));
         sideButton6.whenPressed(new AutoClimbPrePosition(3));
         sideButton4.whenPressed(new AutoClimb(3));
+
+        sideButton5.whenPressed(new AutoClimbPrePosition(2));
+        sideButton3.whenPressed(new AutoClimb(2));
+
         //sideButton6.whileHeld(new Jack(.3));
         //sideButton4.whileHeld(new Jack(-.3));
-        sideButton12.whileHeld(new Arm(.7));
-        sideButton8.whileHeld(new Arm(-.7));
+        //sideButton12.whenPressed(new PIDArm(45));
+        //sideButton8.whileHeld(new Arm(-.7));
         //sideButton7.whenPressed(new PIDJack(5));
         //sideButton2.whenPressed(new PIDJack(0));
 

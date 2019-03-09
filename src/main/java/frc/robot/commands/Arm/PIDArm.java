@@ -29,7 +29,7 @@ public class PIDArm extends PIDCommand {
 
     @Override
     protected boolean isFinished() {
-        return isTimedOut() || Math.abs(getSetpoint() - getPosition()) < .5;
+        return isTimedOut();
     }
 
     protected void end() {
