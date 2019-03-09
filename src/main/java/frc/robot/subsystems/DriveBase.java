@@ -82,14 +82,15 @@ public class DriveBase extends HHSensorDrive {
     }
 
     public void driveBase(double x, double y) {
+        System.out.println("X Value: " + x + " Y Value: " + y);
         robotDrive.arcadeDrive(y, x);
     }
 
-    public void arcade(double x, double y) {
-        robotDrive.arcadeDrive(-y, x);
-    }
+    // public void arcade(double x, double y) {
+    //     robotDrive.arcadeDrive(-y, x);
+    // }
 
-    public void tank(double l, double r) {
-        robotDrive.tankDrive(l, r);
-    }
+    // public void tank(double l, double r) {
+    //     robotDrive.tankDrive(l, r);
+    // }
 }

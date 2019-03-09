@@ -6,10 +6,10 @@ import frc.robot.commands.CommandBase;
 
 public class PIDJack extends PIDCommand {
 
-    private double x = 0;
+    private double x;
 
     public PIDJack(double inches, double x) {
-        super(RobotMap.mainElevatorP, RobotMap.mainElevatorI, RobotMap.mainElevatorD);
+        super(RobotMap.jackP, RobotMap.jackI, RobotMap.jackD);
         requires(CommandBase.jack);
         this.x = x;
         setSetpoint(inches);

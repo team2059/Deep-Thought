@@ -6,7 +6,7 @@ import frc.robot.commands.Arm.PIDArm;
 
 public class HatchPickup extends CommandGroup {
     public HatchPickup() {
-        addParallel(new PIDArm(0));
+        addParallel(new PIDArm(1));
         addParallel(new PIDCarriageElevate(8));
     }
 }

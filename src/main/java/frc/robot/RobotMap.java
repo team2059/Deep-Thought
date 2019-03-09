@@ -43,8 +43,13 @@ public class RobotMap {
 
     // Main Elevator PID
     public static double mainElevatorP = .7;
-    public static double mainElevatorI = 4;
+    public static double mainElevatorI = 0;
     public static double mainElevatorD = .02;
+
+    // Jack PID
+    public static double jackP = .7;
+    public static double jackI = 0;
+    public static double jackD = .02;
 
     /*
      * Intake Arm and Wrist collector
@@ -59,7 +64,7 @@ public class RobotMap {
     public static int armLimitPort = 22;
 
     // Arm PID
-    public static double armP = 0.35;
+    public static double armP = 0.3;
     public static double armI = 0;
     public static double armD = 0.08;
 

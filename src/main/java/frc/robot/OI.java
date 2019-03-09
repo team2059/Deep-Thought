@@ -85,6 +85,9 @@ public class OI {
     }
 
     public OI() {
+        /*
+         * Drive Joystick - First Joystick
+         */
         driveButton7.whileHeld(new Elevate(.3));
         driveButton8.whileHeld(new Elevate(-.3));
         driveButton9.whileHeld(new CarriageElevate(-.3));
@@ -100,8 +103,11 @@ public class OI {
         // driveButton3.whileHeld(new PIDWrist(-25));
         // 8.7 carriage collector
 
-        sideButton1.whileHeld(new Jack(-.3));
-        sideButton2.whileHeld(new Jack(.3));
+        /*
+         * Side Joystick - Second Joystick
+         */
+        sideButton1.whileHeld(new Jack(-.7));
+        sideButton2.whileHeld(new Jack(.7));
         sideButton6.whenPressed(new AutoClimbPrePosition(3));
         sideButton4.whenPressed(new AutoClimb(3));
 
@@ -115,6 +121,9 @@ public class OI {
         //sideButton7.whenPressed(new PIDJack(5));
         //sideButton2.whenPressed(new PIDJack(0));
 
+        /*
+         * Button Box - Third Joystick
+         */
         boxButton1.whenPressed(new CargoSetLevel(1));
         boxButton2.whenPressed(new CargoSetLevel(2));
         boxButton3.whenPressed(new CargoSetLevel(3));
