@@ -56,6 +56,6 @@ public class PIDJack extends PIDCommand {
     }
 
     private double calculateOffset() {
-        return (x - CommandBase.elevator.getCarriageEncoder() + 2.08);
+        return (x - CommandBase.elevator.getCarriageEncoder() + 3.08);
     }
 }

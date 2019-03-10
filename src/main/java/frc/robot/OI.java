@@ -97,7 +97,7 @@ public class OI {
         // driveButton4.whenPressed(new PIDWrist(15));
         // driveButton6.whenPressed(new PIDWrist(41));
         driveButton1.whileHeld(new Collector(.5));
-        driveButton2.whileHeld(new Collector(-.5));
+        driveButton2.whileHeld(new Collector(-.7));
         driveButton6.whileHeld(new JackWheel());
         // driveButton5.whileHeld(new JackWheel());
         // driveButton3.whileHeld(new PIDWrist(-25));

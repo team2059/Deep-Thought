@@ -10,6 +10,7 @@ package frc.robot;
 public class RobotMap {
     //Cameras
     public static int Camera1 = 0;
+    public static int Camera2 = 1;
 
     // Drive Train
     public static int leftMotor1 = 3;
