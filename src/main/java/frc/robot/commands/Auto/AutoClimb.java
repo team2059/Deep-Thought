@@ -6,13 +6,13 @@ import frc.robot.commands.Elevator.PIDCarriageElevate;
 
 
 public class AutoClimb extends CommandGroup {
-  public AutoClimb(int level) {
-    if(level == 2) {
-      addParallel(new PIDJack(12, 6));
-      addParallel(new PIDCarriageElevate(0));
-    } else {
-      addParallel(new PIDJack(21, 18));
-      addParallel(new PIDCarriageElevate(0));
+    public AutoClimb(int level) {
+        if(level == 2) {
+            addParallel(new PIDJack(12, 6));
+            addParallel(new PIDCarriageElevate(0));
+        } else {
+            addParallel(new PIDJack(21, 18));
+            addParallel(new PIDCarriageElevate(0));
+        }
     }
-  }
 }

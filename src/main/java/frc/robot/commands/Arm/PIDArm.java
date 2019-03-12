@@ -33,7 +33,7 @@ public class PIDArm extends PIDCommand {
     }
 
     protected void end() {
-      setTimeout(0);
+        setTimeout(0);
     }
 
     protected void interrupted() {

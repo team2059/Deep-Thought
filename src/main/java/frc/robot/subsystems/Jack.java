@@ -30,14 +30,15 @@ public class Jack extends Subsystem {
     final double fJFinalDegree = 2.15;
 
     public void moveJack(double motorSpeed) {
-        if (getJackEncoder() < 21 && motorSpeed <= 0){
+        if (getJackEncoder() < 21 && motorSpeed <= 0) {
             jackMotor.set(-motorSpeed);
-        } else if (getjackTopLimit() && motorSpeed >= 0){
+        } else if (getjackTopLimit() && motorSpeed >= 0) {
             jackMotor.set(-motorSpeed);
         } else {
-            if (!getjackTopLimit()){
+            if (!getjackTopLimit()) {
                 jackEncoder.reset();
             }
+
             jackMotor.set(0);
         }
     }
@@ -46,37 +47,37 @@ public class Jack extends Subsystem {
         jackWheel.set(wheelSpeed);
     }
 
-    public void setSpike(boolean state){
-        if(state){
+    public void setSpike(boolean state) {
+        if(state) {
             spike.set(Relay.Value.kOn);
         }  else {
             spike.set(Relay.Value.kOff);
         }
     }
 
-    public void setFrontJack(double s){
+    public void setFrontJack(double s) {
         frontJack.set(s);
     }
 
-    public void moveFrontJack(double jackSpeed){
-        System.out.println(-.75*Math.cos(Math.toRadians(getJackAngle())) + jackSpeed + " " + getJackAngle());
-        frontJack.set(-.85*Math.cos(Math.toRadians(getJackAngle())) + jackSpeed);
+    public void moveFrontJack(double jackSpeed) {
+        System.out.println(-.75 * Math.cos(Math.toRadians(getJackAngle())) + jackSpeed + " " + getJackAngle());
+        frontJack.set(-.85 * Math.cos(Math.toRadians(getJackAngle())) + jackSpeed);
     }
 
-    public double getJackAngle(){
+    public double getJackAngle() {
         //return frontJackPot.getVoltage();
         return ((-frontJackPot.getVoltage() + fJZeroDegree) / ((fJZeroDegree - fJFinalDegree) / 90));
     }
 
-    public double getJackEncoder(){
+    public double getJackEncoder() {
         return (jackEncoder.get() * jackInches / jackTicks);
     }
 
-    public void resetJackEncoder(){
+    public void resetJackEncoder() {
         jackEncoder.reset();
     }
 
-    public boolean getjackTopLimit(){
+    public boolean getjackTopLimit() {
         return jackTopLimit.get();
     }
 

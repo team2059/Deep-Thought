@@ -40,7 +40,7 @@ public class PIDJack extends PIDCommand {
     }
 
     @Override
-    protected void execute(){
+    protected void execute() {
         setSetpoint(calculateOffset());
     }
 

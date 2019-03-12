@@ -124,11 +124,11 @@ public class Robot extends TimedRobot {
     @Override
     public void teleopInit() {
         if(!isTeleopInit) {
-          CommandBase.elevator.setCarrigeEncoder(RobotMap.carriageStart);
-          CommandBase.elevator.setElevatorEncoder(0);
-          CommandBase.driveBase.resetLeftEncoder();
-          CommandBase.driveBase.resetRightEncoder();
-          CommandBase.jack.resetJackEncoder();
+            CommandBase.elevator.setCarrigeEncoder(RobotMap.carriageStart);
+            CommandBase.elevator.setElevatorEncoder(0);
+            CommandBase.driveBase.resetLeftEncoder();
+            CommandBase.driveBase.resetRightEncoder();
+            CommandBase.jack.resetJackEncoder();
         }
 
         // This makes sure that the autonomous stops running when
@@ -153,7 +153,7 @@ public class Robot extends TimedRobot {
      */
 
     @Override
-    public void testInit(){
+    public void testInit() {
         System.out.println("Test Mode Enabled");
     }
 

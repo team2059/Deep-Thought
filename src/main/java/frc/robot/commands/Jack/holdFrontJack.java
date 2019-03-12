@@ -27,7 +27,7 @@ public class holdFrontJack extends Command {
      */
     @Override
     protected void execute() {
-        if (CommandBase.jack.getJackEncoder() > -57 && CommandBase.jack.getJackEncoder() < -50){
+        if (CommandBase.jack.getJackEncoder() > -57 && CommandBase.jack.getJackEncoder() < -50) {
             CommandBase.jack.moveFrontJack(0);
         } else {
             CommandBase.jack.moveFrontJack(-.2);
@@ -67,7 +67,7 @@ public class holdFrontJack extends Command {
      */
     @Override
     protected void end() {
-       CommandBase.jack.setFrontJack(0);
+        CommandBase.jack.setFrontJack(0);
     }
 
 

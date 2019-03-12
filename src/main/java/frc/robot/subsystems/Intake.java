@@ -33,8 +33,8 @@ public class Intake extends Subsystem {
 
     public void moveArm(double s) {
         if ((s < 0 && getArmAngle() >= -15) || (s > 0 && getArmAngle() <= 85)) { //Padded Limits by 5 for "safety"
-            System.out.println(.08*Math.cos(Math.toRadians(getArmAngle())) + (0.3*s));
-            armMotor.set(.08*Math.cos(Math.toRadians(getArmAngle())) + (0.3*s));
+            System.out.println(.08 * Math.cos(Math.toRadians(getArmAngle())) + (0.3 * s));
+            armMotor.set(.08 * Math.cos(Math.toRadians(getArmAngle())) + (0.3 * s));
         } else {
             armMotor.set(0);
         }
@@ -42,7 +42,7 @@ public class Intake extends Subsystem {
 
     public void moveWrist(double s) {
         if ((s < 0 && getWristAngle() >= -25) || (s > 0 && getWristAngle() <= 45)) { //Padded Limits by 5 for "safety"
-            wristMotor.set(-.5*Math.cos(Math.toRadians(getWristAngle())) - (0.25*s));
+            wristMotor.set(-.5 * Math.cos(Math.toRadians(getWristAngle())) - (0.25 * s));
         } else {
             wristMotor.set(0);
         }

@@ -87,7 +87,7 @@ public class RobotMap {
     public static int jackEncoderPort1 = 9;
     public static int jackEncoderPort2 = 8;
     public static int jackTopLimitPort = 23;
-    public static int spikePort= 0;
+    public static int spikePort = 0;
 
 
     //Static Elevator Heights
