@@ -31,6 +31,7 @@ public class Jack extends Subsystem {
 
     public void moveJack(double motorSpeed) {
         if (getJackEncoder() < 21 && motorSpeed <= 0){
+            RobotMap.isJackBottom = false;
             jackMotor.set(-motorSpeed);
         } else if (getjackTopLimit() && motorSpeed >= 0){
             jackMotor.set(-motorSpeed);

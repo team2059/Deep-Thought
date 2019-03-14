@@ -94,4 +94,8 @@ public class RobotMap {
     public static double hatchLevelOneHeight = 6.5544;
     public static double hatchLevelTwoHeight = 34.5543;
     public static double hatchLevelThreeHeight = 62.5543;
+
+    //Jack Status
+    public static boolean isJackBottom = false;
+
 }
