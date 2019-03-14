@@ -65,7 +65,10 @@ public class OI {
     JoystickButton boxButton6 = new JoystickButton(buttonBox, 6);
     JoystickButton boxButton7 = new JoystickButton(buttonBox, 7);
     JoystickButton boxButton8 = new JoystickButton(buttonBox, 8);
-
+    JoystickButton boxButton9 = new JoystickButton(buttonBox, 9);
+    JoystickButton boxButton10 = new JoystickButton(buttonBox, 10);
+    JoystickButton boxButton11 = new JoystickButton(buttonBox, 11);
+    JoystickButton boxButton12 = new JoystickButton(buttonBox, 12);
 
     // JoystickButton[] driveButtons = new JoystickButton[14];
     // JoystickButton[] sideButtons = new JoystickButton[13];
@@ -82,6 +85,10 @@ public class OI {
 
     public static Joystick getSideJoystick() {
         return sideJoystick;
+    }
+
+    public static Joystick getButtonBoxJoystick(){
+        return buttonBox;
     }
 
     public OI() {
@@ -108,11 +115,10 @@ public class OI {
          */
         sideButton1.whileHeld(new Jack(-.7));
         sideButton2.whileHeld(new Jack(.7));
-        sideButton6.whenPressed(new AutoClimbPrePosition(3));
-        sideButton4.whenPressed(new AutoClimb(3));
-
-        sideButton5.whenPressed(new AutoClimbPrePosition(2));
-        sideButton3.whenPressed(new AutoClimb(2));
+        sideButton6.whenPressed(new AutoClimbPrePosition());
+        sideButton4.whenPressed(new AutoClimb());
+        sideButton5.whenPressed(new AutoClimbPrePosition());
+        sideButton3.whenPressed(new AutoClimb());
 
         //sideButton6.whileHeld(new Jack(.3));
         //sideButton4.whileHeld(new Jack(-.3));
@@ -132,6 +138,10 @@ public class OI {
         boxButton6.whenPressed(new HatchSetLevel(3));
         boxButton7.whenPressed(new HatchPickup());
         boxButton8.whenPressed(new CargoPickup());
+        boxButton9.whenPressed(new CargoSetLevel(4)); // cargo ship
+        boxButton10.whenPressed(new AutoClimbPrePosition());
+        boxButton11.whenPressed(new AutoClimb());
+        boxButton12.whenPressed(new LumberJack(0));
 
     }
 }

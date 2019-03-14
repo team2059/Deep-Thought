@@ -21,7 +21,7 @@ import frc.robot.commands.CommandBase;
 public class Robot extends TimedRobot {
     public static OI m_oi;
     private static UsbCamera camera1;
-    // private static UsbCamera camera2;
+    private static UsbCamera camera2;
     private static boolean isTeleopInit = false;
 
     Command m_autonomousCommand;
@@ -36,7 +36,7 @@ public class Robot extends TimedRobot {
     public void robotInit() {
         CommandBase.init();
         camera1 = CameraServer.getInstance().startAutomaticCapture("Camera 1", RobotMap.Camera1);
-        // camera2 = CameraServer.getInstance().startAutomaticCapture("Camera 2", RobotMap.Camera1);
+        camera2 = CameraServer.getInstance().startAutomaticCapture("Camera 2", RobotMap.Camera2);
         m_oi = new OI();
         // chooser.addOption("My Auto", new MyAutoCommand());
         SmartDashboard.putData("Auto mode", m_chooser);
