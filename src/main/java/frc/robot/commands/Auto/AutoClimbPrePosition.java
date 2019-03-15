@@ -10,12 +10,7 @@ import frc.robot.commands.Elevator.PIDElevate;
 public class AutoClimbPrePosition extends CommandGroup {
 
     public AutoClimbPrePosition() {
-        if (OI.getButtonBoxJoystick().getRawAxis(1) > 0){
-            addParallel(new PIDCarriageElevate(12));
-            addSequential(new PIDWrist(40));
-        } else {
-            addParallel(new PIDCarriageElevate(23));
-            addSequential(new PIDWrist(40));
-        }
+        addParallel(new LevelClimbSelector(new PIDCarriageElevate(12), new PIDCarriageElevate(23)));
+        addSequential(new PIDWrist(40));
     }
 }
