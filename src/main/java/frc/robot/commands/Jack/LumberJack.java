@@ -23,7 +23,7 @@ public class LumberJack extends PIDCommand {
 
     @Override
     protected void usePIDOutput(double speed) {
-        CommandBase.jack.moveJack(speed);
+        CommandBase.jack.moveJack(-speed);
     }
 
     @Override
