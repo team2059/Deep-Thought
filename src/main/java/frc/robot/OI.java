@@ -132,7 +132,7 @@ public class OI {
          */
         boxButton1.whenPressed(new CargoSetLevel(1));
         boxButton2.whenPressed(new CargoSetLevel(2));
-        boxButton3.whenPressed(new CargoSetLevel(3));
+        boxButton3.whenPressed(new CargoSetLevel(4));
         boxButton4.whenPressed(new HatchSetLevel(1));
         boxButton5.whenPressed(new HatchSetLevel(2));
         boxButton6.whenPressed(new HatchSetLevel(3));

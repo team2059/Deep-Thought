@@ -14,7 +14,7 @@ public class PIDArm extends PIDCommand {
     }
 
     protected void initialize() {
-        setTimeout(4);
+        setTimeout(3);
     }
 
     @Override
@@ -29,7 +29,7 @@ public class PIDArm extends PIDCommand {
 
     @Override
     protected boolean isFinished() {
-        return isTimedOut() || Math.abs(getSetpoint() - getPosition()) < .5;
+        return isTimedOut() || Math.abs(getSetpoint() - getPosition()) < 2.5;
     }
 
     protected void end() {
