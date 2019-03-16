@@ -141,7 +141,7 @@ public class OI {
         boxButton9.whenPressed(new CargoSetLevel(4)); // cargo ship
         boxButton10.whenPressed(new AutoClimbPrePosition());
         boxButton11.whenPressed(new AutoClimb());
-        boxButton12.whenPressed(new LumberJack(0));
+        boxButton12.whenPressed(new Jack(.7));
 
     }
 }

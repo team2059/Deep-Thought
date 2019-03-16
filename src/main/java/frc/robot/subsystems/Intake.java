@@ -56,7 +56,7 @@ public class Intake extends Subsystem {
      * @return the armAngle
      */
     public double getArmAngle() {
-        return (((-armPot.getVoltage() + armZeroDegree) / ((armZeroDegree - armNinetyDegree) / 90)) - 2);
+        return (((-armPot.getVoltage() + armZeroDegree) / ((armZeroDegree - armNinetyDegree) / 90)) - 12);
     }
 
     /**

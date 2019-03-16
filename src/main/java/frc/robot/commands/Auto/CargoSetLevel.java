@@ -13,7 +13,7 @@ public class CargoSetLevel extends CommandGroup{
             addSequential(new PIDCarriageElevate(18.24));
             // addSequential(new PIDArm(45));
         } else if (level == 2){
-            addParallel(new PIDElevate(5));
+            addParallel(new PIDElevate(15));
             addSequential(new PIDCarriageElevate(28));
         } else if (level == 3){
             addParallel(new PIDElevate(30));
