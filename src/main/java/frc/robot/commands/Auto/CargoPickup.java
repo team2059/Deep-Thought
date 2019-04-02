@@ -11,6 +11,6 @@ public class CargoPickup extends CommandGroup {
     public CargoPickup() {
         addSequential(new PIDArm(0));
         addParallel(new PIDElevate(0));
-        addSequential(new PIDCarriageElevate(1));
+        addSequential(new PIDCarriageElevate(5));
     }
 }

@@ -1,6 +1,7 @@
 package frc.robot;
 
 import edu.wpi.cscore.UsbCamera;
+import edu.wpi.cscore.UsbCameraInfo;
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -35,8 +36,13 @@ public class Robot extends TimedRobot {
     @Override
     public void robotInit() {
         CommandBase.init();
+
         camera1 = CameraServer.getInstance().startAutomaticCapture("Camera 1", RobotMap.Camera1);
         camera2 = CameraServer.getInstance().startAutomaticCapture("Camera 2", RobotMap.Camera2);
+        camera1.setResolution(160, 120);
+        camera2.setResolution(160, 120);
+        camera1.setFPS(15);
+        camera2.setFPS(15);
         m_oi = new OI();
         // chooser.addOption("My Auto", new MyAutoCommand());
         SmartDashboard.putData("Auto mode", m_chooser);

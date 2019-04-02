@@ -38,7 +38,7 @@ public class RobotMap {
     public static int elevatorLimitBottom = 7;
 
     // Carraige Elevator PID
-    public static double carriageElevatorP = .7;
+    public static double carriageElevatorP = .35;
     public static double carriageElevatorI = 0;
     public static double carriageElevatorD = 0;
 
@@ -48,7 +48,7 @@ public class RobotMap {
     public static double mainElevatorD = .02;
 
     // Jack PID
-    public static double jackP = .7;
+    public static double jackP = .35;
     public static double jackI = 0;
     public static double jackD = .02;
 
