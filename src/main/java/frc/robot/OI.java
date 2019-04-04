@@ -98,8 +98,8 @@ public class OI {
          */
         driveButton7.whileHeld(new Elevate(.3));
         driveButton8.whileHeld(new Elevate(-.3));
-        driveButton9.whileHeld(new CarriageElevate(-.3));
-        driveButton10.whileHeld(new CarriageElevate(.3));
+        driveButton9.whileHeld(new CarriageElevate(-.6));
+        driveButton10.whileHeld(new CarriageElevate(.6));
         driveButton11.whenPressed(new PIDArm(90));
         driveButton12.whenPressed(new PIDArm(0));
         // driveButton4.whenPressed(new PIDWrist(15));
