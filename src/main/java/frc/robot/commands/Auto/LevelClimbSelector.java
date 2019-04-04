@@ -24,6 +24,6 @@ public class LevelClimbSelector extends ConditionalCommand {
 
     @Override
     protected boolean condition() {
-        return OI.getButtonBoxJoystick().getRawAxis(1) > 0;
+        return OI.getButtonBoxJoystick().getRawButton(14);
     }
 }

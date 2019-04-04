@@ -10,7 +10,7 @@ import frc.robot.commands.Elevator.PIDCarriageElevate;
 public class AutoClimb extends CommandGroup {
     public AutoClimb() {
             addParallel(new LevelClimbSelector(new PIDJack(12, 6), new PIDJack(21, 18)));
-            addParallel(new PIDCarriageElevate(0));
+            addParallel(new PIDCarriageElevate(0, .9));
             RobotMap.isJackBottom = true;
     }
 }
