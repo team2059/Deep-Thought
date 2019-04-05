@@ -10,6 +10,7 @@ import frc.robot.commands.Elevator.PIDElevate;
 public class AutoClimbPrePosition extends CommandGroup {
 
     public AutoClimbPrePosition() {
+        addParallel(new PIDElevate(0));
         addParallel(new LevelClimbSelector(new PIDCarriageElevate(12), new PIDCarriageElevate(26)));
         addSequential(new PIDWrist(40));
     }
