@@ -23,7 +23,8 @@ public class Elevator extends Subsystem {
 
     private double elevatorTicks = -3275546;
     private double elevatorInches = 32;
-    private double carriageTicks = -1357172;
+    // private double carriageTicks = -1357172;
+    private double carriageTicks = -27697;
     private double carriageInches = 28.5;
 
     /*

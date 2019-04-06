@@ -5,22 +5,26 @@ import frc.robot.Robot;
 import frc.robot.commands.Elevator.PIDCarriageElevate;
 import frc.robot.commands.Elevator.PIDElevate;
 import frc.robot.commands.Arm.PIDArm;
+import frc.robot.commands.Arm.PIDWrist;
 
 public class CargoSetLevel extends CommandGroup{
     public CargoSetLevel(double level){
         if (level == 1){
+            addParallel(new PIDWrist(40));
             addParallel(new PIDElevate(0));
-            addSequential(new PIDCarriageElevate(21.24));
+            addSequential(new PIDCarriageElevate(16.24));
             // addSequential(new PIDArm(45));
         } else if (level == 2){
-            addParallel(new PIDElevate(21.5));
+            addParallel(new PIDWrist(40));
+            addParallel(new PIDElevate(16.5));
             addSequential(new PIDCarriageElevate(28));
         } else if (level == 3){
+            addParallel(new PIDArm(20));
+            addParallel(new PIDWrist(40));
             addParallel(new PIDElevate(30));
-            addSequential(new PIDCarriageElevate(28));
-            addSequential(new PIDArm(20));
+            addParallel(new PIDCarriageElevate(28));
         } else if (level == 4){ // actually the cargo ship
-            addParallel(new PIDElevate(5));
+            addParallel(new PIDElevate(6));
             addSequential(new PIDCarriageElevate(28));
         }
     }
