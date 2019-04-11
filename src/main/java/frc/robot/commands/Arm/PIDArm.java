@@ -7,14 +7,16 @@ import edu.wpi.first.wpilibj.command.PIDCommand;
 
 public class PIDArm extends PIDCommand {
 
-    public PIDArm(double angle) {
+    double timeout;
+    public PIDArm(double angle, double timeout) {
         super(RobotMap.armP, RobotMap.armI, RobotMap.armD);
 
         setSetpoint(angle);
+        this.timeout = timeout;
     }
 
     protected void initialize() {
-        setTimeout(3);
+        setTimeout(timeout);
     }
 
     @Override

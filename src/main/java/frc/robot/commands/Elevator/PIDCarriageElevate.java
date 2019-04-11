@@ -23,7 +23,7 @@ public class PIDCarriageElevate extends PIDCommand {
     }
 
     protected void initialize() {
-        setTimeout(6);
+        setTimeout(3);
     }
 
     @Override
