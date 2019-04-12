@@ -15,7 +15,7 @@ public class PIDCarriageElevate extends PIDCommand {
         setSetpoint(inches);
     }
 
-    public PIDCarriageElevate(double inches, double speed){
+    public PIDCarriageElevate(double inches, double speed) {
         super(RobotMap.carriageElevatorP, RobotMap.carriageElevatorI, RobotMap.carriageElevatorD);
 
         setSetpoint(inches);

@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.command.ConditionalCommand;
 import frc.robot.OI;
 
 public class LevelClimbSelector extends ConditionalCommand {
-    
+
     public LevelClimbSelector(Command onTrue) {
         super(onTrue);
     }

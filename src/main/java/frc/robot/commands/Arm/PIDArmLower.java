@@ -29,7 +29,8 @@ public class PIDArmLower extends PIDCommand {
     @Override
     protected void usePIDOutput(double speed) {
         CommandBase.intake.moveArm(speed);
-        if (CommandBase.intake.getArmAngle() > targetAngle){
+
+        if (CommandBase.intake.getArmAngle() > targetAngle) {
             setSetpoint(CommandBase.intake.getArmAngle() - decrement);
         }
     }

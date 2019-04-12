@@ -30,7 +30,7 @@ public class Jack extends Subsystem {
     final double fJFinalDegree = 2.15;
 
     public void moveJack(double motorSpeed) {
-        if (getJackEncoder() < 21 && motorSpeed <= 0){
+        if (getJackEncoder() < 21 && motorSpeed <= 0) {
             RobotMap.isJackBottom = false;
             jackMotor.set(-motorSpeed);
         } else if (getjackTopLimit() && motorSpeed >= 0) {

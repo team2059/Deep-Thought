@@ -88,7 +88,7 @@ public class OI {
         return sideJoystick;
     }
 
-    public static Joystick getButtonBoxJoystick(){
+    public static Joystick getButtonBoxJoystick() {
         return buttonBox;
     }
 
