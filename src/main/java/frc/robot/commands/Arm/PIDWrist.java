@@ -7,14 +7,17 @@ import edu.wpi.first.wpilibj.command.PIDCommand;
 
 public class PIDWrist extends PIDCommand {
 
-    public PIDWrist(double angle) {
+    double timeout;
+    public PIDWrist(double angle, double timeout) {
         super(RobotMap.wristP, RobotMap.wristI, RobotMap.wristD);
         setInputRange(-30, 50);
         setSetpoint(angle);
+        this.timeout = timeout;
     }
 
     protected void initialize() {
-        setTimeout(6);
+        // setTimeout(6);
+        setTimeout(timeout);
     }
 
     @Override

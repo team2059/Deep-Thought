@@ -1,6 +1,7 @@
 package frc.robot;
 
 import edu.wpi.cscore.UsbCamera;
+import edu.wpi.cscore.UsbCameraInfo;
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -21,7 +22,7 @@ import frc.robot.commands.CommandBase;
 public class Robot extends TimedRobot {
     public static OI m_oi;
     private static UsbCamera camera1;
-    // private static UsbCamera camera2;
+    private static UsbCamera camera2;
     private static boolean isTeleopInit = false;
 
     Command m_autonomousCommand;
@@ -35,8 +36,13 @@ public class Robot extends TimedRobot {
     @Override
     public void robotInit() {
         CommandBase.init();
+
         camera1 = CameraServer.getInstance().startAutomaticCapture("Camera 1", RobotMap.Camera1);
-        // camera2 = CameraServer.getInstance().startAutomaticCapture("Camera 2", RobotMap.Camera1);
+        camera2 = CameraServer.getInstance().startAutomaticCapture("Camera 2", RobotMap.Camera2);
+        camera1.setResolution(160, 120);
+        camera2.setResolution(160, 120);
+        camera1.setFPS(15);
+        camera2.setFPS(15);
         m_oi = new OI();
         // chooser.addOption("My Auto", new MyAutoCommand());
         SmartDashboard.putData("Auto mode", m_chooser);
@@ -67,6 +73,7 @@ public class Robot extends TimedRobot {
         SmartDashboard.putNumber("Jack Encoder", CommandBase.jack.getJackEncoder());
         SmartDashboard.putBoolean("Jack Top Limit", CommandBase.jack.getjackTopLimit());
         SmartDashboard.putBoolean("Arm Limit", CommandBase.intake.getArmLimit());
+        SmartDashboard.putBoolean("Jack Down Limit", RobotMap.isJackBottom);
     }
 
     /**

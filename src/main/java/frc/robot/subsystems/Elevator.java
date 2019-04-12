@@ -21,9 +21,11 @@ public class Elevator extends Subsystem {
     DigitalInput carriageLimitTop = new DigitalInput(RobotMap.carriageLimitTop);
     DigitalInput carriageLimitBottom = new DigitalInput(RobotMap.carriageLimitBottom);
 
-    private double elevatorTicks = -3275546;
+    // private double elevatorTicks = -3275546;
+    private double elevatorTicks = -32755;
     private double elevatorInches = 32;
-    private double carriageTicks = -2926134;
+    // private double carriageTicks = -1357172;
+    private double carriageTicks = -27697;
     private double carriageInches = 28.5;
 
     /*
@@ -75,6 +77,7 @@ public class Elevator extends Subsystem {
 
     }
 
+
     public boolean getCarriageLimitBottom() {
         return carriageLimitBottom.get();
     }
@@ -85,6 +88,7 @@ public class Elevator extends Subsystem {
 
     public double getCarriageEncoder() {
         return carriageMotor.getSelectedSensorPosition(0) * carriageInches / carriageTicks;
+        //return carriageMotor.getSelectedSensorPosition(0);
     }
 
     public void setCarrigeEncoder(double d) {

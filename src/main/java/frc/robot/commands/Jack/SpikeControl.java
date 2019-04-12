@@ -36,7 +36,7 @@ public class SpikeControl extends Command {
      * Returns whether this command is finished. If it is, then the command will be removed and
      * {@link #end()} will be called.
      * </p><p>
-     * It may be useful for a team to reference the {@link #isTimedOut()}
+     * It may be useful for a team to refe0rence the {@link #isTimedOut()}
      * method for time-sensitive commands.
      * </p><p>
      * Returning false will result in the command never ending automatically. It may still be

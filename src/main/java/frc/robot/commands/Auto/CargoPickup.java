@@ -9,8 +9,8 @@ import frc.robot.commands.Arm.PIDArm;
 public class CargoPickup extends CommandGroup {
 
     public CargoPickup() {
-        addParallel(new PIDArm(0));
+        addParallel(new PIDArm(0, 2));
         addParallel(new PIDElevate(0));
-        addSequential(new PIDCarriageElevate(1));
+        addSequential(new PIDCarriageElevate(3));
     }
 }

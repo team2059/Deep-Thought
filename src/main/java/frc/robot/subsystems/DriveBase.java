@@ -35,12 +35,12 @@ public class DriveBase extends HHSensorDrive {
         rightMotor1.setSafetyEnabled(false);
         rightMotor2.setSafetyEnabled(false);
         // setzSensitivity(0.6);
-        // setxLowSpeed(1.6);
-        // setyLowSpeed(0.6);
-        // setzLowSpeed(0.6);
-        // setxHighSpeed(1.0);
-        // setyHighSpeed(1.0);
-        // setzHighSpeed(0.8);
+        setxLowSpeed(1.0);
+        setyLowSpeed(1.0);
+        setzLowSpeed(0.8);
+        setxHighSpeed(1.0);
+        setyHighSpeed(1.0);
+        setzHighSpeed(1.0);
     }
 
     @Override

@@ -46,6 +46,7 @@ public class OI {
     JoystickButton driveButton4 = new JoystickButton(driveJoystick, 4);
     JoystickButton driveButton2 = new JoystickButton(driveJoystick, 2);
     JoystickButton driveButton1 = new JoystickButton(driveJoystick, 1);
+    JoystickButton driveButton3 = new JoystickButton(driveJoystick, 3);
 
     JoystickButton sideButton5 = new JoystickButton(sideJoystick, 5);
     JoystickButton sideButton3 = new JoystickButton(sideJoystick, 3);
@@ -65,7 +66,10 @@ public class OI {
     JoystickButton boxButton6 = new JoystickButton(buttonBox, 6);
     JoystickButton boxButton7 = new JoystickButton(buttonBox, 7);
     JoystickButton boxButton8 = new JoystickButton(buttonBox, 8);
-
+    JoystickButton boxButton9 = new JoystickButton(buttonBox, 9);
+    JoystickButton boxButton10 = new JoystickButton(buttonBox, 10);
+    JoystickButton boxButton11 = new JoystickButton(buttonBox, 11);
+    JoystickButton boxButton12 = new JoystickButton(buttonBox, 12);
 
     // JoystickButton[] driveButtons = new JoystickButton[14];
     // JoystickButton[] sideButtons = new JoystickButton[13];
@@ -84,23 +88,27 @@ public class OI {
         return sideJoystick;
     }
 
+    public static Joystick getButtonBoxJoystick(){
+        return buttonBox;
+    }
+
     public OI() {
         /*
          * Drive Joystick - First Joystick
          */
-        driveButton7.whileHeld(new Elevate(.3));
-        driveButton8.whileHeld(new Elevate(-.3));
-        driveButton9.whileHeld(new CarriageElevate(-.3));
-        driveButton10.whileHeld(new CarriageElevate(.3));
-        driveButton11.whileHeld(new Arm(-.1));
-        driveButton12.whileHeld(new Arm(.1));
+        driveButton7.whileHeld(new Elevate(.6));
+        driveButton8.whileHeld(new Elevate(-.6));
+        driveButton9.whileHeld(new CarriageElevate(-.8));
+        driveButton10.whileHeld(new CarriageElevate(.8));
+        driveButton11.whenPressed(new PIDArm(75, 1));
+        driveButton12.whenPressed(new PIDArm(0, 1));
         // driveButton4.whenPressed(new PIDWrist(15));
-        // driveButton6.whenPressed(new PIDWrist(41));
+        // driveButton6.whileHeld(new Jack(.25));
         driveButton1.whileHeld(new Collector(.5));
         driveButton2.whileHeld(new Collector(-.7));
         driveButton6.whileHeld(new JackWheel());
-        // driveButton5.whileHeld(new JackWheel());
-        // driveButton3.whileHeld(new PIDWrist(-25));
+        driveButton5.whenPressed(new LumberJack(4));
+        driveButton3.whenPressed(new LumberJack(10));
         // 8.7 carriage collector
 
         /*
@@ -108,11 +116,10 @@ public class OI {
          */
         sideButton1.whileHeld(new Jack(-.7));
         sideButton2.whileHeld(new Jack(.7));
-        sideButton6.whenPressed(new AutoClimbPrePosition(3));
-        sideButton4.whenPressed(new AutoClimb(3));
-
-        sideButton5.whenPressed(new AutoClimbPrePosition(2));
-        sideButton3.whenPressed(new AutoClimb(2));
+        sideButton6.whenPressed(new AutoClimbPrePosition());
+        sideButton4.whenPressed(new AutoClimb());
+        sideButton5.whenPressed(new AutoClimbPrePosition());
+        sideButton3.whenPressed(new AutoClimb());
 
         //sideButton6.whileHeld(new Jack(.3));
         //sideButton4.whileHeld(new Jack(-.3));
@@ -132,6 +139,10 @@ public class OI {
         boxButton6.whenPressed(new HatchSetLevel(3));
         boxButton7.whenPressed(new HatchPickup());
         boxButton8.whenPressed(new CargoPickup());
+        boxButton9.whenPressed(new CargoSetLevel(4)); // cargo ship
+        boxButton10.whenPressed(new AutoClimbPrePosition());
+        boxButton11.whenPressed(new AutoClimb());
+        boxButton12.whenPressed(new Jack(.7));
 
     }
 }

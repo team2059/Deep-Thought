@@ -56,14 +56,15 @@ public class Intake extends Subsystem {
      * @return the armAngle
      */
     public double getArmAngle() {
-        return ((-armPot.getVoltage() + armZeroDegree) / ((armZeroDegree - armNinetyDegree) / 90));
+        return (((-armPot.getVoltage() + armZeroDegree) / ((armZeroDegree - armNinetyDegree) / 90)) - 12);
+        //return armPot.getVoltage();
     }
 
     /**
      * @return the wristAngle
      */
     public double getWristAngle() {
-        return ((-wristPot.getVoltage() + wristZeroDegree) / ((wristZeroDegree - wristMaxDegree) / 50));
+        return ((-wristPot.getVoltage() + wristZeroDegree) / ((wristZeroDegree - wristMaxDegree) / 50) + 12);
     }
 
     public boolean getArmLimit() {

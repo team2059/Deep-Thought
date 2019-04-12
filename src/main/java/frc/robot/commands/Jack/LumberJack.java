@@ -1,37 +1,34 @@
-package frc.robot.commands.Arm;
+package frc.robot.commands.Jack;
 
 import frc.robot.RobotMap;
 import frc.robot.commands.CommandBase;
 
 import edu.wpi.first.wpilibj.command.PIDCommand;
 
-public class PIDArm extends PIDCommand {
+public class LumberJack extends PIDCommand {
 
-    double timeout;
-    public PIDArm(double angle, double timeout) {
-        super(RobotMap.armP, RobotMap.armI, RobotMap.armD);
-
-        setSetpoint(angle);
-        this.timeout = timeout;
+    public LumberJack(double inches) {
+        super(RobotMap.jackP, RobotMap.jackI, RobotMap.jackD);
+        setSetpoint(inches);
     }
 
     protected void initialize() {
-        setTimeout(timeout);
+        setTimeout(6);
     }
 
     @Override
     protected double returnPIDInput() {
-        return CommandBase.intake.getArmAngle();
+        return CommandBase.jack.getJackEncoder();
     }
 
     @Override
     protected void usePIDOutput(double speed) {
-        CommandBase.intake.moveArm(speed);
+        CommandBase.jack.moveJack(-speed);
     }
 
     @Override
     protected boolean isFinished() {
-        return isTimedOut() || Math.abs(getSetpoint() - getPosition()) < 2.5;
+        return isTimedOut() || Math.abs(getSetpoint() - getPosition()) < .5;
     }
 
     protected void end() {
