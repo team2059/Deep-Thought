@@ -13,10 +13,12 @@ public class RobotMap {
     public static int Camera2 = 1;
 
     // Drive Train
-    public static int leftMotor1 = 3;
-    public static int leftMotor2 = 2;
-    public static int rightMotor1 = 12;
-    public static int rightMotor2 = 1;
+    public static int leftMotor1 = 4;
+    public static int leftMotor2 = 3;
+    public static int leftMotor3 = 6;
+    public static int rightMotor1 = 1;
+    public static int rightMotor2 = 2;
+    public static int rightMotor3 = 5;
 
     // Drive Train Sensors
     public static int leftEncoder1 = 2;

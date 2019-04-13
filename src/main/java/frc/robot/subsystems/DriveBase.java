@@ -9,31 +9,39 @@ import edu.wpi.first.wpilibj.SPI.Port;
 import hhCore.subsystems.drive.HHSensorDrive;
 import frc.robot.RobotMap;
 import frc.robot.commands.Drive;
-import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
+
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 public class DriveBase extends HHSensorDrive {
 
-    WPI_VictorSPX leftMotor1 = new WPI_VictorSPX(RobotMap.leftMotor1);
-    WPI_VictorSPX leftMotor2 = new WPI_VictorSPX(RobotMap.leftMotor2);
-    WPI_VictorSPX rightMotor1 = new WPI_VictorSPX(RobotMap.rightMotor1);
-    WPI_VictorSPX rightMotor2 = new WPI_VictorSPX(RobotMap.rightMotor2);
+    CANSparkMax leftMotor1 = new CANSparkMax(RobotMap.leftMotor1, MotorType.kBrushless);
+    CANSparkMax leftMotor2 = new CANSparkMax(RobotMap.leftMotor2, MotorType.kBrushless);
+    CANSparkMax leftMotor3 = new CANSparkMax(RobotMap.leftMotor3, MotorType.kBrushless);
+    CANSparkMax rightMotor1 = new CANSparkMax(RobotMap.rightMotor1, MotorType.kBrushless);
+    CANSparkMax rightMotor2 = new CANSparkMax(RobotMap.rightMotor2, MotorType.kBrushless);
+    CANSparkMax rightMotor3 = new CANSparkMax(RobotMap.rightMotor3, MotorType.kBrushless);
+
 
     Encoder leftEncoder = new Encoder(RobotMap.leftEncoder1, RobotMap.leftEncoder2);
     Encoder rightEncoder = new Encoder(RobotMap.rightEncoder1, RobotMap.rightEncoder2);
 
     ADXRS450_Gyro gyro = new ADXRS450_Gyro(Port.kOnboardCS0);
 
-    SpeedControllerGroup left = new SpeedControllerGroup(leftMotor1, leftMotor2);
-    SpeedControllerGroup right = new SpeedControllerGroup(rightMotor1, rightMotor2);
+    SpeedControllerGroup left = new SpeedControllerGroup(leftMotor1, leftMotor2, leftMotor3);
+    SpeedControllerGroup right = new SpeedControllerGroup(rightMotor1, rightMotor2, rightMotor3);
 
     DifferentialDrive robotDrive = new DifferentialDrive(left, right);
 
     public DriveBase() {
+        rightMotor1.restoreFactoryDefaults();
+        rightMotor2.restoreFactoryDefaults();
+        rightMotor3.restoreFactoryDefaults();
+        leftMotor1.restoreFactoryDefaults();
+        leftMotor2.restoreFactoryDefaults();
+        leftMotor3.restoreFactoryDefaults();
+
         gyro.calibrate();
-        leftMotor1.setSafetyEnabled(false);
-        leftMotor2.setSafetyEnabled(false);
-        rightMotor1.setSafetyEnabled(false);
-        rightMotor2.setSafetyEnabled(false);
         // setzSensitivity(0.6);
         setxLowSpeed(1.0);
         setyLowSpeed(1.0);
