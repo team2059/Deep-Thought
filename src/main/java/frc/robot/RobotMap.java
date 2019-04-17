@@ -62,6 +62,7 @@ public class RobotMap {
     public static int armPotPort = 1;
     public static int wristPotPort = 0;
     public static int collectorMotorPort = 7;
+    public static int hatchMotorPort = 12;
 
     // Arm Limit
     public static int armLimitPort = 22;

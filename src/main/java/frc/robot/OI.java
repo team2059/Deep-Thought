@@ -11,18 +11,13 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import edu.wpi.first.wpilibj.Joystick;
 
+import frc.robot.commands.Arm.*;
 import frc.robot.commands.Auto.*;
 import frc.robot.commands.Elevator.CarriageElevate;
 import frc.robot.commands.Elevator.PIDCarriageLower;
 import frc.robot.commands.Elevator.Elevate;
 import frc.robot.commands.Elevator.PIDElevate;
 import frc.robot.commands.Elevator.PIDCarriageElevate;
-import frc.robot.commands.Arm.Arm;
-import frc.robot.commands.Arm.PIDArm;
-import frc.robot.commands.Arm.ArmDeploy;
-import frc.robot.commands.Arm.Collector;
-import frc.robot.commands.Arm.Wrist;
-import frc.robot.commands.Arm.PIDWrist;
 import frc.robot.commands.Jack.*;
 
 /**
@@ -102,7 +97,7 @@ public class OI {
         driveButton10.whileHeld(new CarriageElevate(.8));
         driveButton11.whenPressed(new PIDArm(75, 1));
         driveButton12.whenPressed(new PIDArm(0, 1));
-        // driveButton4.whenPressed(new PIDWrist(15));
+        driveButton4.toggleWhenPressed(new Hatch(.3));
         // driveButton6.whileHeld(new Jack(.25));
         driveButton1.whileHeld(new Collector(.5));
         driveButton2.whileHeld(new Collector(-.7));
