@@ -43,6 +43,10 @@ public class DriveBase extends HHSensorDrive {
 
         gyro.calibrate();
         // setzSensitivity(0.6);
+        setDeadzone(0);
+        setxSensitivity(.4);
+        setySensitivity(.4);
+        setzSensitivity(.4);
         setxLowSpeed(1.0);
         setyLowSpeed(1.0);
         setzLowSpeed(0.8);

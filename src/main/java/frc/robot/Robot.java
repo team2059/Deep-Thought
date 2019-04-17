@@ -36,7 +36,7 @@ public class Robot extends TimedRobot {
     @Override
     public void robotInit() {
         CommandBase.init();
-
+        CommandBase.elevator.configElevatorMotor();
         camera1 = CameraServer.getInstance().startAutomaticCapture("Camera 1", RobotMap.Camera1);
         camera2 = CameraServer.getInstance().startAutomaticCapture("Camera 2", RobotMap.Camera2);
         camera1.setResolution(160, 120);

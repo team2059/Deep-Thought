@@ -21,12 +21,18 @@ public class Elevator extends Subsystem {
     DigitalInput carriageLimitTop = new DigitalInput(RobotMap.carriageLimitTop);
     DigitalInput carriageLimitBottom = new DigitalInput(RobotMap.carriageLimitBottom);
 
+
     // private double elevatorTicks = -3275546;
     private double elevatorTicks = -32755;
     private double elevatorInches = 32;
     // private double carriageTicks = -1357172;
     private double carriageTicks = -27697;
     private double carriageInches = 28.5;
+
+    public void configElevatorMotor() {
+        this.elevatorMotor.configContinuousCurrentLimit(30);
+        this.elevatorMotor.enableCurrentLimit(true);
+    }
 
     /*
      *  Main Elevator Stage
