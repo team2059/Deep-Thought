@@ -41,12 +41,19 @@ public class DriveBase extends HHSensorDrive {
         leftMotor2.restoreFactoryDefaults();
         leftMotor3.restoreFactoryDefaults();
 
+        rightMotor1.setSmartCurrentLimit(40);
+        rightMotor2.setSmartCurrentLimit(40);
+        rightMotor3.setSmartCurrentLimit(40);
+        leftMotor1.setSmartCurrentLimit(40);
+        leftMotor2.setSmartCurrentLimit(40);
+        leftMotor3.setSmartCurrentLimit(40);
+
         gyro.calibrate();
         // setzSensitivity(0.6);
-        setDeadzone(0);
+        setDeadzone(.5);
         setxSensitivity(.4);
         setySensitivity(.4);
-        setzSensitivity(.4);
+        setzSensitivity(.2);
         setxLowSpeed(1.0);
         setyLowSpeed(1.0);
         setzLowSpeed(0.8);

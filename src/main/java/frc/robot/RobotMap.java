@@ -14,11 +14,11 @@ public class RobotMap {
 
     // Drive Train
     public static int leftMotor1 = 4;
-    public static int leftMotor2 = 3;
+    public static int leftMotor2 = 5;
     public static int leftMotor3 = 6;
     public static int rightMotor1 = 1;
     public static int rightMotor2 = 2;
-    public static int rightMotor3 = 5;
+    public static int rightMotor3 = 3;
 
     // Drive Train Sensors
     public static int leftEncoder1 = 2;
@@ -29,8 +29,8 @@ public class RobotMap {
     /*
      * Carriage Elevator and Main Elevator
      */
-    public static int elevatorMotor = 5;
-    public static int carriageMotor = 6;
+    public static int elevatorMotor = 13;
+    public static int carriageMotor = 14;
     public static double carriageStart = 9.35091;
 
     // Hall Effect Sensors
