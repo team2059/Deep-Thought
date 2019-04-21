@@ -13,7 +13,7 @@ public class Intake extends Subsystem {
     WPI_VictorSPX armMotor = new WPI_VictorSPX(RobotMap.armMotorPort);
     WPI_VictorSPX wristMotor = new WPI_VictorSPX(RobotMap.wristMotorPort);
     WPI_VictorSPX collectorMotor = new WPI_VictorSPX(RobotMap.collectorMotorPort);
-    WPI_VictorSPX hatchMotor = new WPI_VictorSPX(RobotMap.hatchMotorPort);
+ //   WPI_VictorSPX hatchMotor = new WPI_VictorSPX(RobotMap.hatchMotorPort);
 
 
     //TODO subtract 6 degrees
@@ -72,9 +72,9 @@ public class Intake extends Subsystem {
         return armLimit.get();
     }
 
-    public void setHatchMotor(double speed){
-        hatchMotor.set(speed);
-    }
+    //public void setHatchMotor(double speed){
+    //    hatchMotor.set(speed);
+    //}
 
     @Override
     protected void initDefaultCommand() {}

@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 import frc.robot.commands.Elevator.PIDCarriageElevate;
 import frc.robot.commands.Elevator.PIDElevate;
 import frc.robot.commands.Arm.PIDArm;
+import frc.robot.commands.Arm.Hatch;
 
 
 public class CargoPickup extends CommandGroup {
