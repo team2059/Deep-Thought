@@ -1,7 +1,6 @@
 package frc.robot.commands.Auto;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
-import frc.robot.OI;
 import frc.robot.RobotMap;
 import frc.robot.commands.Jack.PIDJack;
 import frc.robot.commands.Elevator.PIDCarriageElevate;

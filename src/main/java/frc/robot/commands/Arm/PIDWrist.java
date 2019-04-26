@@ -16,7 +16,6 @@ public class PIDWrist extends PIDCommand {
     }
 
     protected void initialize() {
-        // setTimeout(6);
         setTimeout(timeout);
     }
 

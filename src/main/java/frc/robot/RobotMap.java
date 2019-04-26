@@ -8,7 +8,8 @@
 package frc.robot;
 
 public class RobotMap {
-    //Cameras
+
+    // Cameras
     public static int Camera1 = 0;
     public static int Camera2 = 1;
 
@@ -49,10 +50,10 @@ public class RobotMap {
     public static double mainElevatorI = 0;
     public static double mainElevatorD = .02;
 
-    // Jack PID
-    public static double jackP = .35;
-    public static double jackI = 0;
-    public static double jackD = .02;
+    // Static Elevator Heights
+    public static double hatchLevelOneHeight = 6.5544;
+    public static double hatchLevelTwoHeight = 34.5543;
+    public static double hatchLevelThreeHeight = 62.5543;
 
     /*
      * Intake Arm and Wrist collector
@@ -82,7 +83,9 @@ public class RobotMap {
     public static double hatchArmI = 0;
     public static double hatchArmD = 0;
 
-    //Jack
+    /*
+     * Back Climber Jack
+     */
     public static int jackMotorPort = 9;
     public static int jackWheelPort = 11;
     public static int frontJackPort = 4;
@@ -92,13 +95,11 @@ public class RobotMap {
     public static int jackTopLimitPort = 23;
     public static int spikePort = 0;
 
+    // Jack PID
+    public static double jackP = .35;
+    public static double jackI = 0;
+    public static double jackD = .02;
 
-    //Static Elevator Heights
-    public static double hatchLevelOneHeight = 6.5544;
-    public static double hatchLevelTwoHeight = 34.5543;
-    public static double hatchLevelThreeHeight = 62.5543;
-
-    //Jack Status
+    // Jack Status
     public static boolean isJackBottom = false;
-
 }

@@ -6,7 +6,6 @@ public class ArmDeploy extends CommandBase {
     public ArmDeploy() {
     }
 
-
     @Override
     protected void initialize() {
         setTimeout(1);
