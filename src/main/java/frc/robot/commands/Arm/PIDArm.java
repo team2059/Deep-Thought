@@ -43,7 +43,7 @@ public class PIDArm extends PIDCommand {
 
     @Override
     protected boolean isFinished() {
-        if (checkForTimeOut){
+        if (checkForTimeOut) {
             return isTimedOut();
         } else {
             return isTimedOut() || Math.abs(getSetpoint() - getPosition()) < 2.5;

@@ -72,7 +72,7 @@ public class Intake extends Subsystem {
         return armLimit.get();
     }
 
-    public void setHatchMotor(double speed){
+    public void setHatchMotor(double speed) {
         hatchMotor.set(speed);
     }
 

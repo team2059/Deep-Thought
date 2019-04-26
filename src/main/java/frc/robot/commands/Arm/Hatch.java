@@ -11,14 +11,14 @@ public class Hatch extends Command {
         speed = s;
     }
 
-    public Hatch(double s, double t){
+    public Hatch(double s, double t) {
         speed = s;
         timeout = t;
     }
 
     @Override
     protected void initialize() {
-        if (timeout > 0){
+        if (timeout > 0) {
             setTimeout(timeout);
         }
     }
