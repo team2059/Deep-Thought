@@ -59,9 +59,8 @@ public class RobotMap {
      * Intake Arm and Wrist collector
      */
     public static int armMotorPort = 10;
-    public static int wristMotorPort = 8;
     public static int armPotPort = 1;
-    public static int wristPotPort = 0;
+    public static int intakePotPort = 80;
     public static int collectorMotorPort = 7;
     public static int hatchMotorPort = 12;
 
@@ -73,15 +72,14 @@ public class RobotMap {
     public static double armI = 0;
     public static double armD = 0.08;
 
-    // Wrist PID
-    public static double wristP = .14;
-    public static double wristI = 0;
-    public static double wristD = 0.04;
+    // Intake Constants
+    public static double hatchAngle = 0;
+    public static double ballAngle = 90;
 
-    // PID
-    public static double hatchArmP = 1;
-    public static double hatchArmI = 0;
-    public static double hatchArmD = 0;
+    // Collector PID
+    public static double intakeP = 0;
+    public static double intakeI = 0;
+    public static double intakeD = 0;
 
     /*
      * Back Climber Jack
