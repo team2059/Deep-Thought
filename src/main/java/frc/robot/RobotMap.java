@@ -60,7 +60,7 @@ public class RobotMap {
      */
     public static int armMotorPort = 10;
     public static int armPotPort = 1;
-    public static int intakePotPort = 80;
+    public static int intakePotPort = 0;
     public static int collectorMotorPort = 7;
     public static int hatchMotorPort = 12;
 
@@ -74,10 +74,10 @@ public class RobotMap {
 
     // Intake Constants
     public static double hatchAngle = 0;
-    public static double ballAngle = 90;
+    public static double ballAngle = -62;
 
     // Collector PID
-    public static double intakeP = 0;
+    public static double intakeP = 0.03;
     public static double intakeI = 0;
     public static double intakeD = 0;
 

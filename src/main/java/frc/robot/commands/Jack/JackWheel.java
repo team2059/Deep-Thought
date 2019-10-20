@@ -12,7 +12,7 @@ public class JackWheel extends CommandBase {
 
     @Override
     protected void execute() {
-        jack.moveWheel(OI.getDriveJoystick().getY());
+        jack.moveWheel(OI.getDriveJoystick().getY()*3);
     }
 
     @Override

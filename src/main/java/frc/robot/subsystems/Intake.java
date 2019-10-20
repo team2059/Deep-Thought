@@ -17,8 +17,10 @@ public class Intake extends Subsystem {
 
     final double armZeroDegree = 4.6969;
     final double armNinetyDegree = 3.338;
+    final double intakeHatchPosition = 4.561;
+    final double intakeBallPosition = 4.0295;
 
-    public static Boolean isHatchMode = false;
+    public static Boolean isHatchMode = true;
 
     AnalogInput armPot = new AnalogInput(RobotMap.armPotPort);
     AnalogInput intakePot = new AnalogInput(RobotMap.intakePotPort);
@@ -52,7 +54,8 @@ public class Intake extends Subsystem {
     }
 
     public double getIntakeAngle() {
-        return intakePot.getVoltage();
+        return ((-intakePot.getVoltage() + intakeHatchPosition) / ((intakeBallPosition - intakeHatchPosition) / 45) + 12);
+        // return intakePot.getVoltage();
     }
 
     public void setIntakeMotor(double speed) {

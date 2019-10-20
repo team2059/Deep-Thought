@@ -1,5 +1,6 @@
 package frc.robot.commands.Arm;
 
+import frc.robot.Robot;
 import frc.robot.RobotMap;
 import frc.robot.commands.CommandBase;
 
@@ -13,12 +14,15 @@ public class ToggleIntake extends PIDCommand {
 
     public ToggleIntake(double timeout) {
         super(RobotMap.intakeP, RobotMap.intakeI, RobotMap.intakeD);
-
-        if (Intake.isHatchMode){
-           setSetpoint(RobotMap.ballAngle);
-        } else {
-            setSetpoint(RobotMap.hatchAngle);
-        }
+        System.out.println("Running Toggle Intake");
+        setSetpoint(RobotMap.ballAngle);
+//        if (Intake.isHatchMode){
+//            System.out.println("Seeting Ball Angle");
+//           setSetpoint(RobotMap.ballAngle);
+//        } else {
+//            System.out.println("Seeting Hatch Angle");
+//            setSetpoint(RobotMap.hatchAngle);
+//        }
         this.timeout = timeout;
     }
 
@@ -38,11 +42,8 @@ public class ToggleIntake extends PIDCommand {
 
     @Override
     protected boolean isFinished() {
-        if (checkForTimeOut) {
-            return isTimedOut();
-        } else {
-            return isTimedOut() || Math.abs(getSetpoint() - getPosition()) < 2.5;
-        }
+        Intake.isHatchMode = !Intake.isHatchMode;
+        return isTimedOut() || Math.abs(getSetpoint() - getPosition()) < 2.5;
     }
 
     protected void end() {

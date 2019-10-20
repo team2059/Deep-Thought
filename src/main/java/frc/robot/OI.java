@@ -100,8 +100,8 @@ public class OI {
         driveButton1.whileHeld(new Collector(.5));
         driveButton2.whileHeld(new Collector(-.7));
         driveButton6.whileHeld(new JackWheel());
-        driveButton5.whenPressed(new LumberJack(4));
-        driveButton3.whenPressed(new LumberJack(10));
+        driveButton5.whenPressed(new ToggleIntake(1));
+        driveButton3.whenPressed(new SetIntake(-62, 1));
 
         /*
          * Side Joystick - Second Joystick
