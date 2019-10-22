@@ -52,8 +52,8 @@ public class Intake extends Subsystem {
     }
 
     public double getJawAngle() {
-        return ((-intakePot.getVoltage() + intakeHatchPosition) / ((intakeBallPosition - intakeHatchPosition) / 45));
-        // return intakePot.getVoltage();
+        // return ((-intakePot.getVoltage() + intakeHatchPosition) / ((intakeBallPosition - intakeHatchPosition) / 45));
+        return intakePot.getVoltage();
     }
 
     public void setJawMotor(double speed) {
