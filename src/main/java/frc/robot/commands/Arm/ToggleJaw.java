@@ -1,31 +1,31 @@
 package frc.robot.commands.Arm;
 
+import frc.robot.Robot;
 import frc.robot.RobotMap;
 import frc.robot.commands.CommandBase;
 
 import edu.wpi.first.wpilibj.command.PIDCommand;
+import frc.robot.subsystems.Intake;
 
-public class SetIntake extends PIDCommand {
+public class ToggleJaw extends PIDCommand {
 
     double timeout;
     boolean checkForTimeOut = false;
 
-    public SetIntake(double angle, double timeout) {
+    public ToggleJaw(double timeout) {
         super(RobotMap.intakeP, RobotMap.intakeI, RobotMap.intakeD);
-
-        setSetpoint(angle);
         this.timeout = timeout;
+
+        if (RobotMap.isHatchMode){
+          System.out.println("Seeting Ball Angle");
+          setSetpoint(RobotMap.ballAngle);
+        } else {
+          System.out.println("Seeting Hatch Angle");
+          setSetpoint(RobotMap.hatchAngle);
+        }
+
+        RobotMap.isHatchMode = !RobotMap.isHatchMode;
     }
-
-    public SetIntake(double angle, double timeout, boolean checkForTimeOut) {
-        super(RobotMap.intakeP, RobotMap.intakeI, RobotMap.intakeD);
-
-        setSetpoint(angle);
-        this.timeout = timeout;
-        this.checkForTimeOut = checkForTimeOut;
-    }
-
-
 
     protected void initialize() {
         setTimeout(timeout);
@@ -33,21 +33,17 @@ public class SetIntake extends PIDCommand {
 
     @Override
     protected double returnPIDInput() {
-        return CommandBase.intake.getIntakeAngle();
+        return CommandBase.intake.getJawAngle();
     }
 
     @Override
     protected void usePIDOutput(double speed) {
-        CommandBase.intake.setIntakeMotor(speed);
+        CommandBase.intake.setJawMotor(speed);
     }
 
     @Override
     protected boolean isFinished() {
-        if (checkForTimeOut) {
-            return isTimedOut();
-        } else {
-            return isTimedOut() || Math.abs(getSetpoint() - getPosition()) < 2.5;
-        }
+        return isTimedOut() || Math.abs(getSetpoint() - getPosition()) < 2.5;
     }
 
     protected void end() {

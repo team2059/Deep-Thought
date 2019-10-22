@@ -62,7 +62,7 @@ public class RobotMap {
     public static int armPotPort = 1;
     public static int intakePotPort = 0;
     public static int collectorMotorPort = 7;
-    public static int hatchMotorPort = 12;
+    public static int jawMotorPort = 8;
 
     // Arm Limit
     public static int armLimitPort = 22;
@@ -80,6 +80,8 @@ public class RobotMap {
     public static double intakeP = 0.03;
     public static double intakeI = 0;
     public static double intakeD = 0;
+
+    public static boolean isHatchMode = true;
 
     /*
      * Back Climber Jack
